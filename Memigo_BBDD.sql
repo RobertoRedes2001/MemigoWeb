@@ -6,23 +6,24 @@ CREATE TABLE users (
     username VARCHAR(50) NOT NULL,
     password VARCHAR(200) NOT NULL,
     email VARCHAR(200) NOT NULL UNIQUE,
-    userpfp MEDIUMTEXT,
+    userpfp MEDIUMTEXT NULL,
+    creationDate DATETIME NOT NULL,
     PRIMARY KEY(userId)
 );
 
 CREATE TABLE templates(
-	templateId INT NOT NULL AUTO_INCREMENT,
-	template MEDIUMTEXT NOT NULL,
-	PRIMARY KEY(templateId)  
+    templateId INT NOT NULL AUTO_INCREMENT,
+    template MEDIUMTEXT NOT NULL,
+    PRIMARY KEY(templateId)  
 );
 
 CREATE TABLE memes(
-	memeId INT NOT NULL AUTO_INCREMENT,
-	user VARCHAR(16) NOT NULL,
-	meme MEDIUMTEXT NOT NULL,
-	likes INT NOT NULL DEFAULT 0,
-	PRIMARY KEY(idMeme) 
-); 
-
-ALTER TABLE memes ADD CONSTRAINT fk_memes_usu FOREIGN KEY 
-(user) REFERENCES users (userId) ON DELETE CASCADE;
+    memeId INT NOT NULL AUTO_INCREMENT,
+    userId VARCHAR(16) NOT NULL,
+    meme MEDIUMTEXT NOT NULL,
+    postDesc VARCHAR(255) NULL,
+    likes INT NOT NULL DEFAULT 0,
+    postDate DATETIME NOT NULL,
+    PRIMARY KEY(memeId),
+    FOREIGN KEY (userId) REFERENCES users(userId) ON DELETE CASCADE
+);
