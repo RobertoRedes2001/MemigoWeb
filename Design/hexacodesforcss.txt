@@ -1,0 +1,12 @@
+Memigo Clasico
+#000000 - Black
+#A4161A - Cornell Red 
+#E5383B - Imperial Red
+#FFFFFF - White
+
+Memigo Re:Meme
+
+#FFFFFF - White | Donde Negro en clasico
+#5BE9E5 - Flourescent Cyan | Inverso de Cornell Red
+#1AC7C4 - Robin Egg Blue | Inverso de Imperial Red
+#000000 - Black | Donde Blanco en clasico
