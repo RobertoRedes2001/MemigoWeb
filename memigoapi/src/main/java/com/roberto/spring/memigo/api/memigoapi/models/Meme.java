@@ -22,7 +22,7 @@ public class Meme {
 
     /** Identificador del usuario que publicó el meme. */
     @Column(name = "userId")
-    private String userId;
+    private int userId;
 
     /** Contenido del meme. */
     @Column(name = "meme")

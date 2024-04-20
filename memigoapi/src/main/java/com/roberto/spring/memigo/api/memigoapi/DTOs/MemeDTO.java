@@ -12,7 +12,7 @@ import lombok.AllArgsConstructor;
 public class MemeDTO {
     
     private int memeId;
-    private String userId;
+    private int userId;
     private String meme;
     private String postDesc;
     private int likes;
