@@ -1,6 +1,7 @@
 package com.roberto.spring.memigo.api.memigoapi.controllers;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,15 +15,15 @@ public interface IUserController {
     
     public List<UserDTO> getAll();
 
+    public List<UserDTO> getLogin();
+
     public ResponseEntity<?> getUser(@PathVariable("id") int id);
     
     public ResponseEntity<?> getUserByName(@RequestParam("name") String name);
 
-    public ResponseEntity<?> getUserByEmail(@RequestParam("email") String email);
-
     public UserDTO save(@RequestBody User usu) throws Exception;
 
-    public ResponseEntity<?> update(@RequestBody User usu) throws Exception;
+    public ResponseEntity<?> update(Map<String, String> user) throws Exception;
 
     public ResponseEntity<String> delete(@PathVariable("id") int id);
     

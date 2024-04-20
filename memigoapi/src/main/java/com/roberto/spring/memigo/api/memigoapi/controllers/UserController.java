@@ -1,13 +1,26 @@
 package com.roberto.spring.memigo.api.memigoapi.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.roberto.spring.memigo.api.memigoapi.DTOs.UserDTO;
+import com.roberto.spring.memigo.api.memigoapi.DTOs.UserMapper;
+import com.roberto.spring.memigo.api.memigoapi.DTOs.UserMapperImpl;
 import com.roberto.spring.memigo.api.memigoapi.models.User;
+import com.roberto.spring.memigo.api.memigoapi.services.UserServices;
 
 /**
  * Controlador para manejar las solicitudes relacionadas con los usuarios.
@@ -16,39 +29,96 @@ import com.roberto.spring.memigo.api.memigoapi.models.User;
 @RequestMapping("/api")
 public class UserController implements IUserController {
 
-    @Override
+    @Autowired
+    private UserServices userServ;
+
+    private UserMapper userMapper = new UserMapperImpl();
+
+    @GetMapping("/users")
     public List<UserDTO> getAll() {
-        throw new UnsupportedOperationException("Unimplemented method 'getAll'");
+        List<UserDTO> userDTOs = new ArrayList<>();
+        for (User user : userServ.getAll()) {
+            UserDTO userDTO = userMapper.userToUserDTO(user);
+            userDTO.setPassword(null);
+            userDTOs.add(userDTO);
+        }
+        return userDTOs;
     }
 
-    @Override
-    public ResponseEntity<?> getUser(int id) {
-        throw new UnsupportedOperationException("Unimplemented method 'getUser'");
+    @GetMapping("/users/login")
+    public List<UserDTO> getLogin() {
+        List<UserDTO> userDTOs = new ArrayList<>();
+        for (User user : userServ.getAll()) {
+            UserDTO userDTO = new UserDTO();
+            userDTO.setUserId(user.getUserId());
+            userDTO.setEmail(user.getEmail());
+            userDTO.setPassword(user.getPassword());
+            userDTOs.add(userDTO);
+        }
+        return userDTOs;
     }
 
-    @Override
-    public ResponseEntity<?> getUserByName(String name) {
-        throw new UnsupportedOperationException("Unimplemented method 'getUserByName'");
+    @GetMapping("/users/{id}")
+    public ResponseEntity<?> getUser(@PathVariable("id") int id) {
+        if (userServ.getById(id).isPresent()) {
+            UserDTO user = userMapper.userToUserDTO(userServ.getById(id).get());
+            user.setPassword(null);
+            return ResponseEntity.ok().body(user);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario con ID " + id + " no encontrado.");
+        }
     }
 
-    @Override
-    public ResponseEntity<?> getUserByEmail(String email) {
-        throw new UnsupportedOperationException("Unimplemented method 'getUserByEmail'");
+    @GetMapping("/users/byname")
+    public ResponseEntity<?> getUserByName(@PathVariable("name") String name) {
+        String n1 = name.replaceAll("\\s", "").toLowerCase();
+        List<UserDTO> userDTOs = new ArrayList<>();
+        for (User user : userServ.getAll()) {
+            String n2 = user.getUsername().toLowerCase().replaceAll("\\s", "");
+            if(n1.equals(n2)){
+                UserDTO userDTO = userMapper.userToUserDTO(user);
+                userDTO.setPassword(null);
+                userDTOs.add(userDTO);
+            }    
+        }
+        if(userDTOs.isEmpty()){
+            return ResponseEntity.ok().body(userDTOs);
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario con nombre " + name + " no encontrado."); 
+        }
     }
 
-    @Override
-    public UserDTO save(User usu) throws Exception {
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
+    @PostMapping("users/add")
+    public UserDTO save(@RequestBody User usu) throws Exception {
+        UserDTO user = userMapper.userToUserDTO(usu);
+        user.encrypt();
+        usu = userMapper.userDTOToUser(user);
+        userServ.SaveOrUpdate(usu);
+        return user;
     }
 
-    @Override
-    public ResponseEntity<?> update(User usu) throws Exception {
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+    @PutMapping("users/update")
+    public ResponseEntity<?> update(@RequestBody Map<String, String> user) throws Exception {
+        int id = Integer.parseInt(user.get("id"));
+        String userpfp = user.get("userpfp");
+        String username = user.get("username");
+        User userUpd = userServ.getById(id).get();
+        userUpd.setUsername(username);
+        userUpd.setUserpfp(userpfp);
+        userServ.SaveOrUpdate(userUpd);
+        userUpd.setPassword(null);
+        return ResponseEntity.ok().body(userUpd);
     }
 
-    @Override
-    public ResponseEntity<String> delete(int id) {
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+
+    @DeleteMapping("users/delete/{id}")
+    public ResponseEntity<String> delete(@PathVariable("id") int id) {
+        if (userServ.getById(id).isPresent()) {
+            userServ.Delete(id);
+            return ResponseEntity.ok().body("Usuario eliminado de la base de datos.");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario con ID " + id + " no encontrado.");
+        }
     }
     
 }

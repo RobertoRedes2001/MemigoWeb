@@ -47,7 +47,6 @@
         	<artifactId>mapstruct</artifactId>
        		<version>${org.mapstruct.version}</version>
     	</dependency>
-		<!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
 		<!-- https://mvnrepository.com/artifact/jakarta.persistence/jakarta.persistence-api -->
 		<dependency>
 			<groupId>jakarta.persistence</groupId>
