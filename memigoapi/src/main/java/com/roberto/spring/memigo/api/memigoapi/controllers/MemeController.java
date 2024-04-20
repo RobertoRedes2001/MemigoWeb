@@ -1,13 +1,19 @@
 package com.roberto.spring.memigo.api.memigoapi.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.roberto.spring.memigo.api.memigoapi.DTOs.MemeDTO;
+import com.roberto.spring.memigo.api.memigoapi.DTOs.MemeMapperImpl;
+import com.roberto.spring.memigo.api.memigoapi.DTOs.MemeMapper;
 import com.roberto.spring.memigo.api.memigoapi.models.Meme;
+import com.roberto.spring.memigo.api.memigoapi.services.MemeService;
 
 /**
  * Controlador para manejar las solicitudes relacionadas con los memes.
@@ -16,9 +22,19 @@ import com.roberto.spring.memigo.api.memigoapi.models.Meme;
 @RequestMapping("/api")
 public class MemeController implements IMemeController{
 
-    @Override
+    @Autowired
+    private MemeService memeServ;
+
+    private MemeMapper memeMapper = new MemeMapperImpl();
+
+    @GetMapping("/memes")
     public List<MemeDTO> getAll() {
-        throw new UnsupportedOperationException("Unimplemented method 'getAll'");
+        List<MemeDTO> memeDTOs = new ArrayList<>();
+        for (Meme meme : memeServ.getAll()) {
+            MemeDTO memeDTO = memeMapper.memeToMemeDTO(meme);
+            memeDTOs.add(memeDTO);
+        }
+        return memeDTOs;
     }
 
     @Override
