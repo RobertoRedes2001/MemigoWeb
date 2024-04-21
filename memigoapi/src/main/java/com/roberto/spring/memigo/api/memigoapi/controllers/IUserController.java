@@ -19,6 +19,8 @@ public interface IUserController {
 
     public ResponseEntity<?> getUser(@PathVariable("id") int id);
     
+    public ResponseEntity<?> getUserByUID(@RequestParam("uid") String uid);
+
     public ResponseEntity<?> getUserByName(@RequestParam("name") String name);
 
     public UserDTO save(@RequestBody User usu) throws Exception;
