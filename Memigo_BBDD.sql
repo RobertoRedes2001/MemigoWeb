@@ -2,28 +2,28 @@ CREATE DATABASE IF NOT EXISTS memigo_v2;
 USE memigo_v2;
 
 CREATE TABLE users (
-    userId VARCHAR(16) NOT NULL UNIQUE,
+    id VARCHAR(16) NOT NULL UNIQUE,
     username VARCHAR(50) NOT NULL,
     password VARCHAR(200) NOT NULL,
     email VARCHAR(200) NOT NULL UNIQUE,
     userpfp MEDIUMTEXT NULL,
     creationDate DATETIME NOT NULL,
-    PRIMARY KEY(userId)
+    PRIMARY KEY(id)
 );
 
 CREATE TABLE templates(
-    templateId INT NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL AUTO_INCREMENT,
     template MEDIUMTEXT NOT NULL,
-    PRIMARY KEY(templateId)  
+    PRIMARY KEY(id)  
 );
 
 CREATE TABLE memes(
-    memeId INT NOT NULL AUTO_INCREMENT,
-    userId VARCHAR(16) NOT NULL,
+    id INT NOT NULL AUTO_INCREMENT,
+    user VARCHAR(16) NOT NULL,
     meme MEDIUMTEXT NOT NULL,
     postDesc VARCHAR(255) NULL,
     likes INT NOT NULL DEFAULT 0,
     postDate DATETIME NOT NULL,
-    PRIMARY KEY(memeId),
-    FOREIGN KEY (userId) REFERENCES users(userId) ON DELETE CASCADE
+    PRIMARY KEY(id),
+    FOREIGN KEY (user) REFERENCES users(id) ON DELETE CASCADE
 );
