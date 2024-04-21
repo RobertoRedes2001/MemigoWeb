@@ -17,7 +17,7 @@ public interface MemeMapper {
      * @return El objeto MemeDTO resultante.
      */
     @Mapping(target = "id", source = "id")
-    @Mapping(target = "userId", source = "userId")
+    @Mapping(target = "user", source = "user")
     @Mapping(target = "meme", source = "meme")
     @Mapping(target = "postDesc", source = "postDesc")
     @Mapping(target = "likes", source = "likes")
@@ -30,7 +30,7 @@ public interface MemeMapper {
      * @return El objeto Meme resultante.
      */
     @Mapping(target = "id", source = "id")
-    @Mapping(target = "userId", source = "userId")
+    @Mapping(target = "user", source = "user")
     @Mapping(target = "meme", source = "meme")
     @Mapping(target = "postDesc", source = "postDesc")
     @Mapping(target = "likes", source = "likes")

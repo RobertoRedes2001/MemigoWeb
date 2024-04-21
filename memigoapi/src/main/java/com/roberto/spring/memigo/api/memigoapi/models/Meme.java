@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 @Table(name = "memes")
 public class Meme {
 
@@ -20,15 +21,16 @@ public class Meme {
     private int id;
 
     /** Identificador del usuario que publicó el meme. */
-    @Column(name = "userId")
-    private int userId;
+    @ManyToOne
+    @JoinColumn(name = "userid", referencedColumnName = "id")
+    private User user;
 
     /** Contenido del meme. */
     @Column(name = "meme")
     private String meme;
 
     /** Descripción de la publicación del meme. */
-    @Column(name = "postDesc")
+    @Column(name = "post_desc")
     private String postDesc;
 
     /** Número de likes del meme. */
@@ -36,7 +38,7 @@ public class Meme {
     private int likes;
 
     /** Fecha de publicación del meme. */
-    @Column(name = "postDate")
+    @Column(name = "post_date")
     private Date postDate;
 
 }

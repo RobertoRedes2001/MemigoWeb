@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 @Table(name = "Users")
 public class User {
 
@@ -40,7 +41,7 @@ public class User {
     private String userpfp;
 
     /** Fecha de creación del usuario. */
-    @Column(name = "creationDate")
+    @Column(name = "creation_date")
     private Date creationDate;
 
 }

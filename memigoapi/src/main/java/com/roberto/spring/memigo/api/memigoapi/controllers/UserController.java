@@ -86,16 +86,18 @@ public class UserController implements IUserController {
     @GetMapping("/users/byname")
     public ResponseEntity<?> getUserByName(@PathVariable("name") String name) {
         String n1 = name.replaceAll("\\s", "").toLowerCase();
+        System.out.println(n1);
         List<UserDTO> userDTOs = new ArrayList<>();
         for (User user : userServ.getAll()) {
             String n2 = user.getUsername().toLowerCase().replaceAll("\\s", "");
+            System.out.println(n2);
             if(n1.equals(n2)){
                 UserDTO userDTO = userMapper.userToUserDTO(user);
                 userDTO.setPassword(null);
                 userDTOs.add(userDTO);
             }    
         }
-        if(userDTOs.isEmpty()){
+        if(!userDTOs.isEmpty()){
             return ResponseEntity.ok().body(userDTOs);
         }else{
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario con nombre " + name + " no encontrado."); 

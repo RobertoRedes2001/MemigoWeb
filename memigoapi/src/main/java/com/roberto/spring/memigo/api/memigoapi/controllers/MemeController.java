@@ -1,11 +1,14 @@
 package com.roberto.spring.memigo.api.memigoapi.controllers;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +21,7 @@ import com.roberto.spring.memigo.api.memigoapi.DTOs.MemeMapperImpl;
 import com.roberto.spring.memigo.api.memigoapi.DTOs.MemeMapper;
 import com.roberto.spring.memigo.api.memigoapi.models.Meme;
 import com.roberto.spring.memigo.api.memigoapi.services.MemeService;
+import com.roberto.spring.memigo.api.memigoapi.services.UserServices;
 
 /**
  * Controlador para manejar las solicitudes relacionadas con los memes.
@@ -29,6 +33,9 @@ public class MemeController implements IMemeController{
     @Autowired
     private MemeService memeServ;
 
+    @Autowired
+    private UserServices userServ;
+
     private MemeMapper memeMapper = new MemeMapperImpl();
 
     @GetMapping("/memes")
@@ -36,6 +43,7 @@ public class MemeController implements IMemeController{
         List<MemeDTO> memeDTOs = new ArrayList<>();
         for (Meme meme : memeServ.getAll()) {
             MemeDTO memeDTO = memeMapper.memeToMemeDTO(meme);
+            memeDTO.setUser(null);
             memeDTOs.add(memeDTO);
         }
         return memeDTOs;
@@ -44,8 +52,9 @@ public class MemeController implements IMemeController{
     @GetMapping("/memes/{id}")
     public ResponseEntity<?> getById(@PathVariable("id") int id) {
         if (memeServ.getById(id).isPresent()) {
-            MemeDTO meme = memeMapper.memeToMemeDTO(memeServ.getById(id).get());
-            return ResponseEntity.ok().body(meme);
+            MemeDTO memeDTO = memeMapper.memeToMemeDTO(memeServ.getById(id).get());
+            memeDTO.setUser(null);
+            return ResponseEntity.ok().body(memeDTO);
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Meme con ID " + id + " no encontrado.");
         }
@@ -55,8 +64,9 @@ public class MemeController implements IMemeController{
     public ResponseEntity<?> getMemesByUser(@PathVariable("id") int id) {
         List<MemeDTO> memeDTOs = new ArrayList<>();
         for (Meme meme : memeServ.getAll()) {
-            if (meme.getUserId()==id) {
+            if (meme.getUser().getId()==id) {
                 MemeDTO memeDTO = memeMapper.memeToMemeDTO(meme);
+                memeDTO.setUser(null);
                 memeDTOs.add(memeDTO);
                 return ResponseEntity.ok().body(memeDTOs);
             } 
@@ -65,13 +75,18 @@ public class MemeController implements IMemeController{
     }
 
     @PostMapping("/memes/add")
-    public MemeDTO save(@RequestBody Meme meme) throws Exception {
-        MemeDTO memeDTO = memeMapper.memeToMemeDTO(meme);
-        memeServ.SaveOrUpdate(meme);
-        return memeDTO;
+    public ResponseEntity<?> save(@RequestBody Map<String, String> request) throws Exception {
+        int userid = Integer.parseInt(request.get("userId"));
+        if(userServ.getById(userid).isPresent()){
+            Meme meme = new Meme(0, userServ.getById(userid).get(), request.get("meme"), request.get("postDesc"), 0, new Date());
+            MemeDTO memeDTO = memeMapper.memeToMemeDTO(meme);
+            memeServ.SaveOrUpdate(meme);
+            return ResponseEntity.ok().body(memeDTO);
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario con ID " + userid + " no encontrado.");
     }
 
-    @GetMapping("/memes/delete")
+    @DeleteMapping("/memes/delete/{id}")
     public ResponseEntity<String> delete(@PathVariable("id") int id) {
         if (memeServ.getById(id).isPresent()) {
             memeServ.Delete(id);
