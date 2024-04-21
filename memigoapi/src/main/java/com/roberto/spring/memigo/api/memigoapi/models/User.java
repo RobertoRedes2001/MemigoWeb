@@ -17,6 +17,7 @@ public class User {
     /** Identificador único del usuario. */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int userId;
  
     /** Nombre del usuario. */
