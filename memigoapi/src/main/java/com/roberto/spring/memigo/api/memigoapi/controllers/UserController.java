@@ -50,7 +50,8 @@ public class UserController implements IUserController {
         List<UserDTO> userDTOs = new ArrayList<>();
         for (User user : userServ.getAll()) {
             UserDTO userDTO = new UserDTO();
-            userDTO.setUserId(user.getUserId());
+            userDTO.setId(user.getId());
+            userDTO.setUid(user.getUid());
             userDTO.setEmail(user.getEmail());
             userDTO.setPassword(user.getPassword());
             userDTOs.add(userDTO);
@@ -67,6 +68,19 @@ public class UserController implements IUserController {
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario con ID " + id + " no encontrado.");
         }
+    }
+
+    @GetMapping("/users/byuid")
+    public ResponseEntity<?> getUserByUID(@PathVariable("uid") String uid) {
+        UserDTO userDTO = new UserDTO();
+        for (User user : userServ.getAll()) {
+            if(uid.equals(user.getUid())){
+                userDTO = userMapper.userToUserDTO(user);
+                userDTO.setPassword(null);
+                return ResponseEntity.ok().body(userDTO);
+            }    
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario " + uid + " no encontrado."); 
     }
 
     @GetMapping("/users/byname")

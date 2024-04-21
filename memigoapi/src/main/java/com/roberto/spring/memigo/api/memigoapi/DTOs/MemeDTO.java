@@ -11,7 +11,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class MemeDTO {
     
-    private int memeId;
+    private int id;
     private int userId;
     private String meme;
     private String postDesc;

@@ -17,9 +17,12 @@ public class User {
     /** Identificador único del usuario. */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int userId;
+    private int id;
  
+    /** Arroba del usuario. */
+    @Column(name = "uid")
+    private String uid;
+
     /** Nombre del usuario. */
     @Column(name = "username")
     private String username;

@@ -16,7 +16,7 @@ public interface MemeMapper {
      * @param meme El objeto Meme a convertir.
      * @return El objeto MemeDTO resultante.
      */
-    @Mapping(target = "memeId", source = "memeId")
+    @Mapping(target = "id", source = "id")
     @Mapping(target = "userId", source = "userId")
     @Mapping(target = "meme", source = "meme")
     @Mapping(target = "postDesc", source = "postDesc")
@@ -29,7 +29,7 @@ public interface MemeMapper {
      * @param memeDTO El objeto MemeDTO a convertir.
      * @return El objeto Meme resultante.
      */
-    @Mapping(target = "memeId", source = "memeId")
+    @Mapping(target = "id", source = "id")
     @Mapping(target = "userId", source = "userId")
     @Mapping(target = "meme", source = "meme")
     @Mapping(target = "postDesc", source = "postDesc")

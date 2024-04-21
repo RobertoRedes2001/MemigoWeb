@@ -15,8 +15,7 @@ public class Template {
     /** Identificador único de la plantilla. */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int templateId;
+    private int id;
 
     /** Contenido de la plantilla. */
     @Column(name = "template")

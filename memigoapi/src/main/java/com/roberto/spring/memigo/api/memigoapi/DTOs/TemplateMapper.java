@@ -16,7 +16,7 @@ public interface TemplateMapper {
      * @param template El objeto Template a convertir.
      * @return El objeto TemplateDTO resultante.
      */
-    @Mapping(target = "templateId", source = "templateId")
+    @Mapping(target = "id", source = "id")
     @Mapping(target = "template", source = "template")
     TemplateDTO templateToTemplateDTO(Template template);
 
@@ -25,7 +25,7 @@ public interface TemplateMapper {
      * @param templateDTO El objeto TemplateDTO a convertir.
      * @return El objeto Template resultante.
      */
-    @Mapping(target = "templateId", source = "templateId")
+    @Mapping(target = "id", source = "id")
     @Mapping(target = "template", source = "template")
     Template templateDTOToTemplate(TemplateDTO templateDTO);
 }

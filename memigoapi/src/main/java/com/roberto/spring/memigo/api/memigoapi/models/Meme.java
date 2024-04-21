@@ -17,8 +17,7 @@ public class Meme {
     /** Identificador único del meme. */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int memeId;
+    private int id;
 
     /** Identificador del usuario que publicó el meme. */
     @Column(name = "userId")

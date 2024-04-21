@@ -17,7 +17,8 @@ public interface UserMapper {
      * @param user El objeto User a convertir.
      * @return El objeto UserDTO resultante.
      */
-    @Mapping(target = "userId", source = "userId")
+    @Mapping(target = "id", source = "id")
+    @Mapping(target = "uid", source = "uid")
     @Mapping(target = "username", source = "username")
     @Mapping(target = "email", source = "email")
     @Mapping(target = "password", source = "password")
@@ -30,7 +31,8 @@ public interface UserMapper {
      * @param userDTO El objeto UserDTO a convertir.
      * @return El objeto User resultante.
      */
-    @Mapping(target = "userId", source = "userId")
+    @Mapping(target = "id", source = "id")
+    @Mapping(target = "uid", source = "uid")
     @Mapping(target = "username", source = "username")
     @Mapping(target = "email", source = "email")
     @Mapping(target = "password", source = "password")

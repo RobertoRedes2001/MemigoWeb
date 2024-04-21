@@ -13,7 +13,8 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class UserDTO {
     
-    private int userId;
+    private int id;
+    private String uid;
     private String username;
     private String email;
     private String password;
