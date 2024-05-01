@@ -6,3 +6,9 @@ export interface Meme{
     description : string;
     post : Date;
 }
+
+export interface MemePost{
+    userid : number;
+    meme : string;
+    description : string;
+}
