@@ -32,5 +32,5 @@ INSERT INTO templates (id, template) VALUES (0, 'plantilla1');
 INSERT INTO templates (id, template) VALUES (0, 'plantilla2');
 INSERT INTO templates (id, template) VALUES (0, 'plantilla3');
 
-INSERT INTO roles (name) VALUES ('user');
-INSERT INTO roles (name) VALUES ('admin');
+INSERT INTO roles (name) VALUES ('ROLE_USER');
+INSERT INTO roles (name) VALUES ('ROLE_ADMIN');
