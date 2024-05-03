@@ -8,7 +8,7 @@ CREATE TABLE users (
     password VARCHAR(200) NOT NULL,
     email VARCHAR(200) NOT NULL UNIQUE,
     userpfp MEDIUMTEXT NULL,
-    creationDate DATETIME NOT NULL,
+    creation_date DATETIME NOT NULL,
     PRIMARY KEY(id)
 );
 
@@ -36,9 +36,9 @@ CREATE TABLE memes(
     id INT NOT NULL AUTO_INCREMENT,
     userid INT NOT NULL,
     meme MEDIUMTEXT NOT NULL,
-    postDesc VARCHAR(255) NULL,
+    post_desc VARCHAR(255) NULL,
     likes INT NOT NULL DEFAULT 0,
-    postDate DATETIME NOT NULL,
+    post_date DATETIME NOT NULL,
     PRIMARY KEY(id),
     FOREIGN KEY (userid) REFERENCES users(id) ON DELETE CASCADE
 );
