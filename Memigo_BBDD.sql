@@ -12,6 +12,20 @@ CREATE TABLE users (
     PRIMARY KEY(id)
 );
 
+CREATE TABLE roles (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(18) NOT NULL,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE users_roles (
+    id_user INT NOT NULL,
+    id_role INT NOT NULL,
+    PRIMARY KEY (id_user, id_role),
+    FOREIGN KEY (id_user) REFERENCES users(id),
+    FOREIGN KEY (id_role) REFERENCES roles(id)
+);
+
 CREATE TABLE templates(
     id INT NOT NULL AUTO_INCREMENT,
     template MEDIUMTEXT NOT NULL,

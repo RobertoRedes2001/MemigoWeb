@@ -31,3 +31,6 @@ VALUES (0, 5, 'imagen', 'La inteligencia me persigue pero yo soy más rápido.',
 INSERT INTO templates (id, template) VALUES (0, 'plantilla1');
 INSERT INTO templates (id, template) VALUES (0, 'plantilla2');
 INSERT INTO templates (id, template) VALUES (0, 'plantilla3');
+
+INSERT INTO roles (name) VALUES ('user');
+INSERT INTO roles (name) VALUES ('admin');
