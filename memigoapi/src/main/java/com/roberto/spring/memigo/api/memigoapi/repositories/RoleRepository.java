@@ -4,12 +4,11 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import com.roberto.spring.memigo.api.memigoapi.models.User;
+
+import com.roberto.spring.memigo.api.memigoapi.models.Role;
 
 @Repository
-public interface UserRepository extends JpaRepository<User,Integer>{
+public interface RoleRepository extends JpaRepository<Role,Integer> {
     
-    boolean existsByUid(String uid);
-    Optional<User> findByUid(String uid);
-    
+    Optional<Role> findByName(String name);
 }

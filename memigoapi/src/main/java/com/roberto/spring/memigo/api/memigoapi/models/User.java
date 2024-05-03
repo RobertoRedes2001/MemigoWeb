@@ -1,6 +1,9 @@
 package com.roberto.spring.memigo.api.memigoapi.models;
 
 import java.util.Date;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.*;
 
@@ -43,5 +46,19 @@ public class User {
     /** Fecha de creación del usuario. */
     @Column(name = "creation_date")
     private Date creationDate;
+
+    /** Lista de roles del usuario. */
+    @JsonIgnoreProperties({"users"})
+    @ManyToMany
+    @JoinTable(
+        name = "users_roles",
+        joinColumns = @JoinColumn(name="id_user"),
+        inverseJoinColumns = @JoinColumn(name="id_role"),
+        uniqueConstraints = { @UniqueConstraint(columnNames = {"id_user", "id_role"})}
+    )
+    private List<Role> roles;
+
+    @Transient
+    private boolean admin;
 
 }

@@ -45,20 +45,6 @@ public class UserController implements IUserController {
         return userDTOs;
     }
 
-    @GetMapping("/users/login")
-    public List<UserDTO> getLogin() {
-        List<UserDTO> userDTOs = new ArrayList<>();
-        for (User user : userServ.getAll()) {
-            UserDTO userDTO = new UserDTO();
-            userDTO.setId(user.getId());
-            userDTO.setUid(user.getUid());
-            userDTO.setEmail(user.getEmail());
-            userDTO.setPassword(user.getPassword());
-            userDTOs.add(userDTO);
-        }
-        return userDTOs;
-    }
-
     @GetMapping("/users/{id}")
     public ResponseEntity<?> getUser(@PathVariable("id") int id) {
         if (userServ.getById(id).isPresent()) {
@@ -107,8 +93,6 @@ public class UserController implements IUserController {
     @PostMapping("users/add")
     public UserDTO save(@RequestBody User usu) throws Exception {
         UserDTO user = userMapper.userToUserDTO(usu);
-        user.encrypt();
-        usu = userMapper.userDTOToUser(user);
         userServ.SaveOrUpdate(usu);
         return user;
     }

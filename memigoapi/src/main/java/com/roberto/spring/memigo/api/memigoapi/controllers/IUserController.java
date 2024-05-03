@@ -15,8 +15,6 @@ public interface IUserController {
     
     public List<UserDTO> getAll();
 
-    public List<UserDTO> getLogin();
-
     public ResponseEntity<?> getUser(@PathVariable("id") int id);
     
     public ResponseEntity<?> getUserByUID(@RequestParam("uid") String uid);
