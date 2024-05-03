@@ -4,15 +4,16 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
-import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { authInterceptor } from './interceptor/auth.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideAnimationsAsync(), 
-    provideNativeDateAdapter(), provideHttpClient(),
+    provideNativeDateAdapter(), provideHttpClient(withInterceptors([authInterceptor])),
     TranslateModule.forRoot({
     defaultLanguage: getSelectedLanguage(),
     loader: {

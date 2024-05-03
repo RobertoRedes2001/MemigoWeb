@@ -15,10 +15,6 @@ export class UsersService {
     return this.http.get<User[]>('http://localhost:8080/api/users');
   }
 
-  public getLogin(): Observable<User[]> {
-    return this.http.get<User[]>('http://localhost:8080/api/users/login');
-  }
-
   public getById(id: number): Observable<User> {
     return this.http.get<User>('http://localhost:8080/api/users/'+id);
   }
