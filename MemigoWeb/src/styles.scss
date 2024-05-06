@@ -1,5 +1,6 @@
 @use '@angular/material' as mat;
 
+
 @include mat.core();
 
 $custom-light-primary-palette: (
@@ -87,5 +88,5 @@ body.dark-theme{
   @include mat.all-component-themes($memigo-rememe-theme);
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { height: 100%; margin: 0; padding: 0; }
+body {  font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,1 +1,17 @@
-<p>header works!</p>
+<nav [ngClass]="isLightTheme ? 'light-theme' : 'dark-theme'" class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/" RouterLinkActive="active">Memigo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" routerLink="/" RouterLinkActive="active"><h2>VER MEMES</h2></a>
+        <a class="nav-link" routerLink="/search" RouterLinkActive="active"><h2>BUSCAR UN USUARIO</h2></a>
+        <a class="nav-link" routerLink="/creator" RouterLinkActive="active"><h2>HACER UN MEMIGO</h2></a>
+        <a class="nav-link" routerLink="/options" RouterLinkActive="active"><h2 class="bi bi-gear"></h2></a>
+        <a class="nav-link" routerLink="/my-profile" RouterLinkActive="active"><h2 class="bi bi-person-circle"></h2></a>
+      </div>
+    </div>
+  </div>
+</nav>

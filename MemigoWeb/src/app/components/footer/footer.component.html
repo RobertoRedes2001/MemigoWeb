@@ -1,1 +1,17 @@
-<p>footer works!</p>
+<footer [ngClass]="isLightTheme ? 'light-theme' : 'dark-theme'">
+    <div class="meme-footer p-4 pb-0 footer-container">
+        <section class="mb-4 social-media-section">
+            <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: rgb(0, 119, 255);"
+                href="https://www.linkedin.com/in/roberto-martínez-avendaño-7290b5254/" target="_blank" role="button">
+                <mat-icon class="bi bi-linkedin"></mat-icon>
+            </a>
+            <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #333333;"
+                href="https://github.com/RobertoRedes2001"target="_blank"  role="button">
+                <mat-icon class="bi bi-github"></mat-icon>
+            </a>
+        </section>
+    </div>
+    <div class="meme-footer text-center p-3">
+        © Memigo 2023-2024
+    </div>
+</footer>

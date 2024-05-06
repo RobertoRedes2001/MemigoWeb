@@ -1,0 +1,73 @@
+/* memigo classic*/
+.light-theme {
+    background-color: #F44336; /* Color de fondo del tema de luz */
+}
+
+.light-theme .navbar-brand,
+.light-theme .navbar-nav .nav-link {
+    color: white; /* Color del texto de la marca y los enlaces */
+    margin-right: 75px;
+}
+
+.light-theme  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.light-theme  .navbar-toggler {
+    border: 2px solid white;
+}
+
+.light-theme .navbar-toggler:focus,
+.light-theme .navbar-toggler:active {
+    outline: none;
+    border: none;
+    box-shadow: none; /* Elimina el efecto de foco en el botón de hamburguesa */
+}
+
+.light-theme .meme-header {
+    color: white; /* Color del texto en meme-header */
+    display: none; /* Oculta meme-header por defecto */
+}
+
+@media (max-width: 768px) {
+    .light-theme .meme-header {
+        display: block; /* Muestra meme-header en dispositivos móviles */
+    }
+}
+
+/* memigo re:meme*/
+.dark-theme {
+    background-color: #99FBFB; /* Color de fondo del tema oscuro */
+}
+
+.dark-theme .navbar-brand,
+.dark-theme .navbar-nav .nav-link {
+    color: black; /* Color del texto de la marca y los enlaces en el tema oscuro */
+    margin-right: 75px;
+}
+
+.dark-theme .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='black' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.dark-theme .navbar-toggler {
+    border: 2px solid black;
+}
+
+.dark-theme .navbar-toggler:focus,
+.dark-theme .navbar-toggler:active {
+    outline: none;
+    border: none;
+    box-shadow: none; /* Elimina el efecto de foco en el botón de hamburguesa */
+}
+
+.dark-theme .meme-header {
+    color: black; /* Color del texto en meme-header en el tema oscuro */
+    display: none; /* Oculta meme-header por defecto */
+}
+
+@media (max-width: 768px) {
+    .dark-theme .meme-header {
+        display: block; /* Muestra meme-header en dispositivos móviles */
+    }
+}
