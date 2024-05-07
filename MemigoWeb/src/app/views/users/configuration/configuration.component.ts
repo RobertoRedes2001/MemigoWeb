@@ -25,7 +25,6 @@ export class ConfigurationComponent {
     const currentTheme = localStorage.getItem('theme'); 
     const newTheme = currentTheme === 'light-theme' ? 'dark-theme' : 'light-theme';
     localStorage.setItem('theme', newTheme);
-    this.theme = localStorage.getItem('theme');
     location.reload();
   }
 
