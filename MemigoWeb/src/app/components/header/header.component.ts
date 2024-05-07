@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NgClass } from '@angular/common';
-import { GlobalConstants } from '../../common/global-constants';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
@@ -13,7 +12,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class HeaderComponent {
   
-  globalConstants = new GlobalConstants();
+  theme : string | null = localStorage.getItem('theme');
 
-  isLightTheme : boolean = this.globalConstants.isLightTheme;
 }

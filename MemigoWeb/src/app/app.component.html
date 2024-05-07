@@ -1,5 +1,7 @@
 <div class="app-container">
-    <memigo-header></memigo-header>
+    @if(currentRoute != '/login' && currentRoute != '/register'){
+        <memigo-header></memigo-header>
+    }
     <div class="body">
         <router-outlet></router-outlet>
     </div>

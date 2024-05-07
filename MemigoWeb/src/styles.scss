@@ -4,7 +4,7 @@
 @include mat.core();
 
 $custom-light-primary-palette: (
-  25: #ff8800,
+  25: #F44336,
   50: #FFEBEE,
   100: #FFCDD2,
   200: #EF9A9A,
@@ -28,17 +28,17 @@ $custom-light-primary-palette: (
 );
 
 $custom-dark-primary-palette: (
-  25: #0077ff,
-  50: #1AC7C4,
-  100: #33D2CE,
-  200: #5BE9E5,
-  300: #66EDE9,
-  400: #80F5F2,
-  500: #99FBFB,
-  600: #B2FFFF,
-  700: #CCFFFF,
-  800: #d3f7f7,
-  900: #E5FFFF,
+  25: #10BCB9,
+  50: #10141A,
+  100: #10322D,
+  200: #106565,
+  300: #10AC8C,
+  400: #10AAAF,
+  500: #10BCB9,
+  600: #11C7B6,
+  700: #12CDCE,
+  800: #13DCDD,
+  900: #14E9F5,
   contrast: (
     25:white,
     50: white,

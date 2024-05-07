@@ -1,0 +1,60 @@
+/* login.component.css */
+
+.login-container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  height: 50vh; /* 100% de la altura de la ventana */
+}
+
+.login-form {
+  max-width: 400px; /* Ancho máximo del formulario */
+  width: 100%; /* Ancho completo */
+  text-align: center; /* Centra los elementos dentro del formulario */
+}
+
+.login-form > div {
+  margin-bottom: 16px; /* Espaciado entre los campos */
+}
+
+.light-theme .login-form button {
+  width: 100%; /* Ancho completo */
+  padding: 10px; /* Ajusta el espaciado interno */
+  margin-top: 16px; /* Espacio superior */
+  background-color: #f44336; /* Color de fondo rojo */
+  color: white; /* Color del texto blanco */
+  border: none; /* Sin contorno */
+  border-radius: 20px; /* Hace el botón redondo */
+}
+
+.light-theme .login-form button:hover {
+  background-color: #a4161a; /* Cambia el color de fondo al pasar el mouse */
+}
+
+.dark-theme .login-form button {
+  width: 100%; /* Ancho completo */
+  padding: 10px; /* Ajusta el espaciado interno */
+  margin-top: 16px; /* Espacio superior */
+  background-color: #10BCB9; /* Color de fondo rojo */
+  color: black; /* Color del texto blanco */
+  border: none; /* Sin contorno */
+  border-radius: 20px; /* Hace el botón redondo */
+}
+
+.dark-theme .login-form button:hover {
+  background-color: #14E9F5; /* Cambia el color de fondo al pasar el mouse */
+}
+
+.login-form a {
+  display: block; /* Muestra el enlace como un bloque */
+  text-align: center; /* Alinea el texto a la derecha */
+  margin-bottom: 16px; /* Espacio inferior */
+}
+
+.login-form h1 {
+  margin-bottom: 25px; /* Espacio inferior */
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+}

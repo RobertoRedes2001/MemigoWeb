@@ -1,0 +1,40 @@
+/* my-component.component.css */
+
+.container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    height: 50vh; /* Centra en el medio de la página */
+  }
+  
+  .col-sm {
+    text-align: center; /* Centra el contenido de las columnas */
+  }
+  
+  .light-theme button {
+    width: 200px; 
+    padding: 10px; 
+    margin-top: 16px; 
+    background-color: #F44336;
+    color: white; 
+    border: none; 
+    border-radius: 20px; 
+  }
+  
+  .light-theme button:hover {
+    background-color: #A4161A; /* Cambia el color de fondo al pasar el mouse */
+  }
+
+  .dark-theme button {
+    width: 200px; 
+    padding: 10px; 
+    margin-top: 16px; 
+    background-color: #10BCB9;
+    color: black; 
+    border: none; 
+    border-radius: 20px; 
+  }
+  
+  .dark-theme button:hover {
+    background-color: #14E9F5; /* Cambia el color de fondo al pasar el mouse */
+  }

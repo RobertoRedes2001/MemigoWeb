@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { NgClass } from '@angular/common';
-import { GlobalConstants } from '../../common/global-constants';
 
 @Component({
   selector: 'memigo-footer',
@@ -12,8 +11,6 @@ import { GlobalConstants } from '../../common/global-constants';
 })
 export class FooterComponent {
 
-  globalConstants = new GlobalConstants();
+  theme : string | null = localStorage.getItem('theme');
 
-  isLightTheme : boolean = this.globalConstants.isLightTheme;
-  
 }
