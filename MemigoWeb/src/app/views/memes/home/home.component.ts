@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { UsersService } from '../../../services/users.service';
+import { User } from '../../../interfaces/user.interfaces';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -9,4 +12,9 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  constructor(public service:UsersService){}
+
+  ngOnInit(){
+   
+  }
 }

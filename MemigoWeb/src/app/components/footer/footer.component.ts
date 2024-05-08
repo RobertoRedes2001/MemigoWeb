@@ -11,6 +11,13 @@ import { NgClass } from '@angular/common';
 })
 export class FooterComponent {
 
-  theme : string | null = localStorage.getItem('theme');
+  theme : string | null = '';
 
+  ngOnInit(){
+    console.log(localStorage.getItem('theme'))
+    if(localStorage.getItem('theme')==null){
+      localStorage.setItem('theme','light-theme');
+    }
+    this.theme = localStorage.getItem('theme') 
+  }
 }

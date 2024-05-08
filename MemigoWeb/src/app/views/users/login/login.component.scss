@@ -4,13 +4,15 @@
   display: flex;
   justify-content: center; /* Centra horizontalmente */
   align-items: center; /* Centra verticalmente */
-  height: 50vh; /* 100% de la altura de la ventana */
+  height: 100vh; /* 100% de la altura de la ventana */
+
 }
 
 .login-form {
   max-width: 400px; /* Ancho máximo del formulario */
   width: 100%; /* Ancho completo */
   text-align: center; /* Centra los elementos dentro del formulario */
+  margin: auto;
 }
 
 .login-form > div {

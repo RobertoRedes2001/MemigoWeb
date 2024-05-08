@@ -7,6 +7,15 @@
 .light-theme .navbar-nav .nav-link {
     color: white; /* Color del texto de la marca y los enlaces */
     margin-right: 75px;
+    margin-top: 10px;
+}
+
+img{
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 5px;
 }
 
 .light-theme  .navbar-toggler-icon {
@@ -44,6 +53,7 @@
 .dark-theme .navbar-nav .nav-link {
     color: black; /* Color del texto de la marca y los enlaces en el tema oscuro */
     margin-right: 75px;
+    margin-top: 10px;
 }
 
 .dark-theme .navbar-toggler-icon {

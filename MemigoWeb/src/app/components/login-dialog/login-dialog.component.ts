@@ -11,5 +11,12 @@ import { NgClass } from '@angular/common';
   styleUrl: './login-dialog.component.scss'
 })
 export class LoginDialogComponent {
-  theme : string | null = localStorage.getItem('theme');
+  theme : string | null = '';
+
+  ngOnInit(){
+    if(localStorage.getItem('theme')==null){
+      localStorage.setItem('theme','light-theme');
+    }
+    this.theme = localStorage.getItem('theme') 
+  }
 }

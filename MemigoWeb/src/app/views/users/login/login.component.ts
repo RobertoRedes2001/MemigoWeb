@@ -8,6 +8,7 @@ import { AuthService } from '../../../services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginDialogComponent } from '../../../components/login-dialog/login-dialog.component';
 import { NgClass } from '@angular/common';
+import { GlobalConstants } from '../../../common/global-constants';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent {
 
   authService = inject(AuthService);
   routerService = inject(Router);
-  theme : string | null = localStorage.getItem('theme');
+  theme : string | null = '';
+  global = new GlobalConstants();
 
   constructor(public dialog: MatDialog) {}
 
@@ -38,11 +40,20 @@ export class LoginComponent {
     })
       .subscribe({
         next: () => {
-          this.routerService.navigate(['/']); // Redirect on successful login
+          this.authService.setCurrentUser();
+          this.global.url = "/home";
+          this.routerService.navigate(['/home']);
         },
         error: (error) => {
           this.dialog.open(LoginDialogComponent);
         }
       });
+  }
+
+  ngOnInit(){
+    if(localStorage.getItem('theme')==null){
+      localStorage.setItem('theme','light-theme');
+    }
+    this.theme = localStorage.getItem('theme') 
   }
 }

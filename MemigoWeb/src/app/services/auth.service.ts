@@ -19,7 +19,7 @@ export class AuthService {
 
   login(user:{uid:string,password:string}):Observable<any>{
     return this.http.post('http://localhost:8080/login',user).pipe(
-      tap((tokens:any)=>this.doLoginUser(user.uid,JSON.stringify(tokens)))
+      tap((tokens:any)=>this.doLoginUser(user.uid,JSON.stringify(tokens.token)))
     );
   }
 
@@ -27,6 +27,11 @@ export class AuthService {
     this.loggedUser = uid;
     this.storeJWT(token);
     this.isAuthenticatedSubject.next(true);
+  }
+
+  setCurrentUser(): void{
+    console.log(this.loggedUser)
+    localStorage.setItem("currentUser",this.loggedUser??'');
   }
 
   private storeJWT(jwt:string){

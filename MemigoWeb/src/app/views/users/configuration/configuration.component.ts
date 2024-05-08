@@ -1,24 +1,40 @@
-import { Component } from '@angular/core';
-import { GlobalConstants } from '../../../common/global-constants';
+import { Component, inject } from '@angular/core';
 import { NgClass } from '@angular/common';
+import { AuthService } from '../../../services/auth.service';
+import { UsersService } from '../../../services/users.service';
+import { User } from '../../../interfaces/user.interfaces';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteDialogComponent } from '../../../components/delete-dialog/delete-dialog.component';
 
 @Component({
   selector: 'app-configuration',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass,DeleteDialogComponent],
   templateUrl: './configuration.component.html',
   styleUrl: './configuration.component.scss'
 })
+
 export class ConfigurationComponent {
-  globalConstants = new GlobalConstants();
-  theme : string | null = localStorage.getItem('theme');
+
+  constructor(public service : UsersService,public dialog: MatDialog){}
+
+  theme : string | null = '';
+  authService = inject(AuthService);
 
   logOut(){
-
+    let user : User = { id: 0, uid: '', username: '', email: '', userpfp: '', creation: new Date() };
+    this.service.setCurrentUser(user);
+    this.authService.logout();
   }
 
   accountInDecline(){
-
+    this.dialog.open(DeleteDialogComponent).afterClosed().subscribe(result => {
+      alert(result);
+      if (result == 'Ok') {
+        this.service.deleteUser(this.service.getCurrentUser().id).subscribe();
+        this.authService.logout();
+      }
+    });
   }
 
   toggleTheme() {
@@ -26,6 +42,13 @@ export class ConfigurationComponent {
     const newTheme = currentTheme === 'light-theme' ? 'dark-theme' : 'light-theme';
     localStorage.setItem('theme', newTheme);
     location.reload();
+  }
+
+  ngOnInit(){
+    if(localStorage.getItem('theme')==null){
+      localStorage.setItem('theme','light-theme');
+    }
+    this.theme = localStorage.getItem('theme');
   }
 
 }
