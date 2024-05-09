@@ -1,3 +1,5 @@
+import { SafeUrl } from "@angular/platform-browser";
+
 export interface User{
     id : number;
     uid : string;
@@ -8,19 +10,12 @@ export interface User{
 }
 
 export interface UserPost{
-    uid : string;
-    username : string;
-    email : string;
-    password : string;
-    userpfp : string;
-    creation : Date;
-}
-
-export interface UserLogin{
-    id : number;
-    uid : string;
-    email : string;
-    password : string;
+    uid : string | null;
+    username : string | null;
+    email : string | null;
+    password : string | null;
+    userpfp : string | SafeUrl;
+    creationDate : Date;
 }
 
 export interface UserUpdate{

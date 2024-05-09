@@ -1,6 +1,5 @@
 
 #form {
- justify-content: center;
  height: 100vh;
  margin-left: 100px;
 }
@@ -33,8 +32,13 @@
     background-color: #f44336;
     color: white;
   }
-  
-  .light-theme .register-form button:hover {
+
+  .light-theme .register-form button:disabled {
+    opacity: 0.5; 
+    cursor: not-allowed;
+  }
+
+  .light-theme .register-form button:not(:disabled):hover {
     background-color: #a4161a;
   }
   
@@ -42,12 +46,27 @@
     background-color: #10BCB9;
     color: black;
   }
+
+  .dark-theme .register-form button:disabled {
+    opacity: 0.5; 
+    cursor: not-allowed;
+  }
   
-  .dark-theme .register-form button:hover {
+
+  .dark-theme .register-form button:not(:disabled):hover {
     background-color: #14E9F5;
   }
+  
 
   .mat-mdc-form-field {
     width: 75%;
+  }
+
+  .light-theme h1{
+    color: black;
+  }
+
+  .dark-theme h1{
+    color: white;
   }
   

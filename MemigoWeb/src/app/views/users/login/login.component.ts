@@ -45,7 +45,12 @@ export class LoginComponent {
           this.routerService.navigate(['/home']);
         },
         error: (error) => {
-          this.dialog.open(LoginDialogComponent);
+          this.dialog.open(LoginDialogComponent, {
+            data: { dialog_header: "Error de Inicio de sesion",
+              dialog_body: "Contraseña o nombre de usuario incorrectos.",
+              dialog_button:"Cerrar"
+             } 
+          });
         }
       });
   }

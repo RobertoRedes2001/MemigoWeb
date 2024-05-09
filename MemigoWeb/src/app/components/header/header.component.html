@@ -10,7 +10,7 @@
         <a class="nav-link" routerLink="/search" RouterLinkActive="active"><h2>BUSCAR UN USUARIO</h2></a>
         <a class="nav-link" routerLink="/maker" RouterLinkActive="active"><h2>HACER UN MEMIGO</h2></a>
         <a class="nav-link" routerLink="/settings" RouterLinkActive="active"><h2 class="bi bi-gear"></h2></a>
-        <a routerLink="/{{profilelink}}" RouterLinkActive="active"><img src="{{profilepic}}"></a>
+        <a routerLink="/{{profilelink}}" RouterLinkActive="active"><img [src]="profilepic"></a>
       </div>
     </div>
   </div>

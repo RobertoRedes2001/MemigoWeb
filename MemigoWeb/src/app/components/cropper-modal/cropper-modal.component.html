@@ -1,0 +1,18 @@
+<div [ngClass]="theme" class="modal-content">
+  <h2 mat-dialog-title>Crop Image</h2>
+  <mat-dialog-content class="mat-typography">
+
+    <image-cropper
+      [imageChangedEvent]="imageChangedEvent"
+      [maintainAspectRatio]="true"
+      [aspectRatio]="1 / 1"
+      format="png"
+      (imageCropped)="imageCropped($event)"
+    ></image-cropper>
+ 
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Crop</button>
+  </mat-dialog-actions>
+</div>

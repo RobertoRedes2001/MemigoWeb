@@ -29,8 +29,7 @@ export class UsersService {
   }
 
   public getUsers(): Observable<User[]> {
-    console.log(this.headers)
-    return this.http.get<User[]>(this.apiHead+'api/users',{ headers: this.headers });
+    return this.http.get<User[]>(this.apiHead+'api/users');
   }
 
   public getById(id: number): Observable<User> {

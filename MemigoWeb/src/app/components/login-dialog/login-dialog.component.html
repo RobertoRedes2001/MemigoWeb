@@ -1,7 +1,7 @@
 <div [ngClass]="theme">
-    <h2 mat-dialog-title>Error de Inicio de Sesion</h2>
-    <mat-dialog-content>Contraseña o nombre de usuario incorrectos.</mat-dialog-content>
+    <h2 mat-dialog-title>{{dialog_header}}</h2>
+    <mat-dialog-content>{{dialog_body}}</mat-dialog-content>
     <mat-dialog-actions>
-    <button mat-button mat-dialog-close>Cerrar</button>
+    <button mat-button mat-dialog-close>{{dialog_button}}</button>
     </mat-dialog-actions>
 </div>

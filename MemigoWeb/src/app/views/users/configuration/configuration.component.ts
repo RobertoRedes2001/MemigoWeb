@@ -29,7 +29,6 @@ export class ConfigurationComponent {
 
   accountInDecline(){
     this.dialog.open(DeleteDialogComponent).afterClosed().subscribe(result => {
-      alert(result);
       if (result == 'Ok') {
         this.service.deleteUser(this.service.getCurrentUser().id).subscribe();
         this.authService.logout();

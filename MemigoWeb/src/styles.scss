@@ -82,10 +82,12 @@ $memigo-rememe-theme: mat.define-dark-theme((
 
 body.light-theme{
   @include mat.all-component-themes($memigo-classic-theme);
+  background-color: #FFCDD2;
 }
 
 body.dark-theme{
   @include mat.all-component-themes($memigo-rememe-theme);
+  background-color: #10141A;
 }
 
 html, body { height: 100%; margin: 0; padding: 0; }
