@@ -13,7 +13,7 @@ export class UsersService {
 
   private apiHead : string = "http://localhost:8080/";
   localtk = localStorage.getItem("JWT_TOKEN");
-  token =  JSON.parse(this.localtk?? '');
+  token =  JSON.parse(this.localtk?? 'null');
   private headers = new HttpHeaders({
     'Authorization': `Bearer ${this.token}`
   });
@@ -21,7 +21,7 @@ export class UsersService {
   currentUser : User | null = null;
 
   public getCurrentUser() : any {
-    return this.currentUser;
+    return this.currentUser;   
   }
 
   public setCurrentUser(user:User) : void {
@@ -42,7 +42,7 @@ export class UsersService {
   }
 
   public addUser(user: any): Observable<any> {
-    return this.http.post(this.apiHead+'api/users/add', user,{ headers: this.headers })
+    return this.http.post(this.apiHead+'api/users/add', user)
       .pipe(
         catchError(error => {
           throw error; // Propagar el error

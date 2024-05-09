@@ -1,1 +1,67 @@
-<p>register works!</p>
+<div class="container-fluid" [ngClass]="theme">
+    <h1>Registro</h1>
+    <hr>
+    <div id="form" class="row">
+        <form (submit)="register($event)" [formGroup]="registerForm" class="register-form row">
+            <div class="col-lg-6 col-md-12">
+                <section class="col-12 sect-1">
+                    <div class="mb-3">
+                      <mat-form-field>
+                        <mat-label>Nombre de usuario</mat-label>
+                        <input type="text" id="username" matInput formControlName="username" placeholder="Nombre de usuario">
+                        <mat-error>El nombre de usuario es obligatorio</mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="mb-3">
+                      <mat-form-field>
+                        <mat-label>Identificador</mat-label>
+                        <input type="text" id="uid" matInput formControlName="uid" placeholder="Identificador">
+                        @if (registerForm.controls.uid.hasError('required')) {
+                            <mat-error>El id de usuario es <strong>obligatorio</strong></mat-error>
+                        }
+                      </mat-form-field>
+                    </div>
+                    <div class="mb-3">
+                      <mat-form-field>
+                        <mat-label>Correo electrónico</mat-label>
+                        <input type="email" id="email" matInput formControlName="email" placeholder="Correo electrónico">
+                        @if (registerForm.controls.email.hasError('required')) {
+                            <mat-error>El correo electrónico es obligatorio</mat-error>
+                        }
+                        @if (registerForm.controls.email.hasError('required')) {
+                            <mat-error>El correo electrónico debe tener un formato válido</mat-error>
+                        }
+                      </mat-form-field>
+                    </div>
+                    <div class="mb-3">
+                      <mat-form-field>
+                        <mat-label>Contraseña</mat-label>
+                        <input type="password" id="password" matInput formControlName="password" placeholder="Contraseña">
+                        <mat-error>La contraseña es obligatoria</mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="mb-3">
+                      <mat-form-field>
+                        <mat-label>Confirmar contraseña</mat-label>
+                        <input type="password" id="confirmpassword" matInput formControlName="confirmpassword" placeholder="Confirmar contraseña">
+                        <mat-error>Debes confirmar la contraseña</mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="mb-3">
+                      <mat-checkbox formControlName="termsAndConditions">He aceptado los términos y condiciones</mat-checkbox>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <section class="col-12">
+                    <div class="mb-3">
+                      <img class="picture" [src]="profilepic">
+                      <br>
+                      <input type="file" (change)="changePicture($event)">
+                    </div>
+                    <button type="submit" [disabled]="!registerForm.controls.termsAndConditions.value">Registrarse</button>
+                </section>
+            </div>
+        </form>
+    </div>
+</div>

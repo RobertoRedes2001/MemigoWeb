@@ -1,0 +1,53 @@
+
+#form {
+ justify-content: center;
+ height: 100vh;
+ margin-left: 100px;
+}
+  
+  .register-form {
+    margin: auto;
+    width: 100%;
+  }
+  
+  .register-form > section {
+    margin-bottom: 16px;
+  }
+
+  img{
+    width: 250px;
+    height: 250px;
+  }
+
+  .light-theme .register-form button,
+  .dark-theme .register-form button {
+    width: 250px;
+    padding: 10px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    border: none;
+    border-radius: 20px;
+  }
+  
+  .light-theme .register-form button {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .light-theme .register-form button:hover {
+    background-color: #a4161a;
+  }
+  
+  .dark-theme .register-form button {
+    background-color: #10BCB9;
+    color: black;
+  }
+  
+  .dark-theme .register-form button:hover {
+    background-color: #14E9F5;
+  }
+
+  .mat-mdc-form-field {
+    width: 75%;
+  }
+  
