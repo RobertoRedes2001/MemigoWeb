@@ -26,6 +26,7 @@
     "angular-material-icons": "^0.7.1",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
+    "html2canvas": "^1.4.1",
     "jwt-decode": "^4.0.0",
     "ngx-image-cropper": "^8.0.0",
     "rxjs": "~7.8.0",

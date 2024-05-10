@@ -1,1 +1,19 @@
-<p>meme-make works!</p>
+<div class="contenedor-imagen">
+    <span class="momazo-text">{{ text1 }}</span>
+    <span class="momazo-text-fondo">{{ text2 }}</span>
+    <img id="meme" class="momazo-img" [src]="imageSrc">
+    <br>
+    <mat-form-field>
+        <mat-label>Texto 1</mat-label>
+        <input type="text" matInput (input)="updateTextUp($event)"placeholder="Texto encima de la imagen">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Texto 2</mat-label>
+        <input type="text" matInput (input)="updateTextDown($event)" placeholder="Texto en el fondo de la imagen">
+    </mat-form-field>
+    <br>
+    <input type="file" (change)="fileChangeEvent($event)">
+    <br>
+    <button (click)="downloadMeme()">Descargar Imagen</button>
+</div>

@@ -5,7 +5,7 @@ import {
   MatDialogRef,
 } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import { ImageCropperComponent, ImageCroppedEvent,LoadedImage  } from 'ngx-image-cropper';
+import { ImageCropperComponent, ImageCroppedEvent, LoadedImage  } from 'ngx-image-cropper';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { NgClass } from '@angular/common';
 

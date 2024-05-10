@@ -1,0 +1,52 @@
+/* textbox-con-texto-encima.component.css */
+.contenedor-imagen {
+    position: relative;
+    display: inline-block;
+    width: 500px; /* Ancho de la imagen */
+    height: 500px; /* Altura de la imagen */
+}
+  
+.momazo-img{
+    width: 500px; /* Ancho de la imagen */
+    height: 500px; /* Altura de la imagen */
+}
+
+.mat-mdc-form-field {
+    width: 500px;
+  }
+
+.momazo-text {
+    position: absolute;
+    top: 10px; /* Ajusta la posición del texto según necesites */
+    left: 10px; /* Ajusta la posición del texto según necesites */
+    right: 10px;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #ffffff;
+    -webkit-text-stroke: 2px black;
+    text-transform: uppercase;
+    font-size: 50px;
+    padding: 10px; /* Espaciado interior del texto */
+    word-wrap: break-word; /* Esta propiedad hace que el texto haga saltos de línea */
+    white-space: pre-wrap; /* Esto es para que se respeten los saltos de línea */
+    max-width: 100%; /* El texto no superará el ancho del contenedor */
+    max-height: 100%; /* El texto no superará la altura del contenedor */
+}
+
+.momazo-text-fondo {
+    position: absolute;
+    text-align: center;
+    bottom: 10px; /* Ajusta la posición del texto de fondo según necesites */
+    left: 10px; /* Ajusta la posición del texto de fondo según necesites */
+    right: 10px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #ffffff;
+    -webkit-text-stroke: 2px black;
+    text-transform: uppercase;
+    font-size: 50px; /* Tamaño de fuente del texto en el fondo de la imagen */
+    padding: 8px; /* Espaciado interior del texto */
+    word-wrap: break-word; /* Esta propiedad hace que el texto haga saltos de línea */
+    white-space: pre-wrap; /* Esto es para que se respeten los saltos de línea */
+    max-width: 100%; /* El texto no superará el ancho del contenedor */
+    max-height: 100%; /* El texto no superará la altura del contenedor */
+  }

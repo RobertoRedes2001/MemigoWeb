@@ -60,5 +60,6 @@ export class LoginComponent {
       localStorage.setItem('theme','light-theme');
     }
     this.theme = localStorage.getItem('theme') 
+    
   }
 }
