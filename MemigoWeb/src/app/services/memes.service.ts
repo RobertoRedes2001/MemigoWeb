@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Meme } from '../interfaces/meme.interfaces';
 import { catchError, map } from 'rxjs/operators';
@@ -10,21 +10,27 @@ import { catchError, map } from 'rxjs/operators';
 export class MemesService {
 
   constructor(public http: HttpClient) { }
+  private apiHead : string = "http://localhost:8080/";
+  localtk = localStorage.getItem("JWT_TOKEN");
+  token =  JSON.parse(this.localtk?? 'null');
+  private headers = new HttpHeaders({
+    'Authorization': `Bearer ${this.token}`
+  });
 
   public getMemes(): Observable<Meme[]> {
-    return this.http.get<Meme[]>('http://localhost:8080/api/memes');
+    return this.http.get<Meme[]>(this.apiHead+'api/memes',{ headers: this.headers });
   }
 
   public getById(id: number): Observable<Meme> {
-    return this.http.get<Meme>('http://localhost:8080/api/memes/'+id);
+    return this.http.get<Meme>(this.apiHead+'api/memes/'+id,{ headers: this.headers });
   }
 
   public getByUser(uid: number): Observable<Meme> {
-    return this.http.get<Meme>('http://localhost:8080/api/memes/byuser/'+uid);
+    return this.http.get<Meme>(this.apiHead+'api/memes/byuser/'+uid,{ headers: this.headers });
   }
 
-  public addMeme(Meme: any): Observable<any> {
-    return this.http.post('http://localhost:8080/api/memes/add', Meme)
+  public addMeme(meme: any): Observable<any> {
+    return this.http.post(this.apiHead+'api/memes/add', meme,{ headers: this.headers })
       .pipe(
         catchError(error => {
           throw error; // Propagar el error
@@ -33,7 +39,7 @@ export class MemesService {
   }
 
   deleteMeme(id: number): Observable<string> {
-    return this.http.delete('http://localhost:8080/api/memes/delete/' + id, { responseType: 'text' })
+    return this.http.delete(this.apiHead+'api/memes/delete/' + id, { headers: this.headers,responseType: 'text' })
       .pipe(
         map(response => response),
         catchError(error => {

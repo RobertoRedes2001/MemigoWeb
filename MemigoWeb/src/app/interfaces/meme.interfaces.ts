@@ -8,7 +8,7 @@ export interface Meme{
 }
 
 export interface MemePost{
-    userid : number;
+    userId : number;
     meme : string;
-    description : string;
+    postDesc : string;
 }

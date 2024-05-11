@@ -1,0 +1,12 @@
+<div [ngClass]="theme">
+    <h2 mat-dialog-title>Añade una descripcion a tu publicacion</h2>
+    <mat-dialog-content>
+        <mat-form-field>
+            <textarea matInput [formControl]="postForm" placeholder="Escribe tu descripción aquí..." maxlength="255"></textarea>
+        </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button (click)="postMeme()" [mat-dialog-close]="true" cdkFocusInitial>Publicar</button>
+        <button mat-button mat-dialog-close>Cancelar</button>
+    </mat-dialog-actions>
+</div>
