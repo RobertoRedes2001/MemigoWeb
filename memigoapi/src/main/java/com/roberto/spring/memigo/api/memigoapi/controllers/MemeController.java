@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -84,6 +85,32 @@ public class MemeController implements IMemeController{
             return ResponseEntity.ok().body(memeDTO);
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario con ID " + userid + " no encontrado.");
+    }
+
+    @PutMapping("/memes/like/{id}")
+    public ResponseEntity<?> like(@PathVariable("id") int id) throws Exception {
+        if(memeServ.getById(id).isPresent()){
+            MemeDTO memeDTO = memeMapper.memeToMemeDTO(memeServ.getById(id).get());
+            int likes = memeDTO.getLikes();
+            memeDTO.setLikes(likes+1);
+            Meme meme = memeMapper.memeDTOToMeme(memeDTO);
+            memeServ.SaveOrUpdate(meme);
+            return ResponseEntity.ok().body(memeDTO);
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Meme con ID " + id + " no encontrado.");
+    }
+
+    @PutMapping("/memes/dislike/{id}")
+    public ResponseEntity<?> dislike(@PathVariable("id") int id) throws Exception {
+        if(memeServ.getById(id).isPresent()){
+            MemeDTO memeDTO = memeMapper.memeToMemeDTO(memeServ.getById(id).get());
+            int likes = memeDTO.getLikes();
+            memeDTO.setLikes(likes-1);
+            Meme meme = memeMapper.memeDTOToMeme(memeDTO);
+            memeServ.SaveOrUpdate(meme);
+            return ResponseEntity.ok().body(memeDTO);
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Meme con ID " + id + " no encontrado.");
     }
 
     @DeleteMapping("/memes/delete/{id}")
