@@ -1,20 +1,28 @@
 import { Component, inject } from '@angular/core';
-import { UsersService } from '../../../services/users.service';
-import { User } from '../../../interfaces/user.interfaces';
-import { AuthService } from '../../../services/auth.service';
+import { Meme } from '../../../interfaces/meme.interfaces';
+import { MemesService } from '../../../services/memes.service';
+import { NgClass } from '@angular/common';
+import { PostComponent } from '../../../components/post/post.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [NgClass,PostComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
 
-  constructor(public service:UsersService){}
+  memesServ = inject(MemesService);
+  memes : Meme[] = [] 
+
+  getMemes(){
+    this.memesServ.getMemes().subscribe((response) => {
+      this.memes = response;
+    });
+  }
 
   ngOnInit(){
-   
+    this.getMemes();
   }
 }

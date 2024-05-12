@@ -57,7 +57,7 @@ export class MemeMakeComponent {
   }
 
   downloadMeme() {
-    const container = this.elementRef.nativeElement.querySelector('.contenedor-imagen');
+    const container = this.elementRef.nativeElement.querySelector('.meme-container');
     html2canvas(container).then(canvas => {
        const image = canvas.toDataURL('image/png');
        const link = document.createElement('a');
@@ -91,7 +91,7 @@ export class MemeMakeComponent {
 
   async getPictureInfo(): Promise<void> {
     return new Promise<void>((resolve, reject) => {
-        const container = this.elementRef.nativeElement.querySelector('#meme');
+        const container = this.elementRef.nativeElement.querySelector('.meme-container');
         html2canvas(container).then(canvas => {
             this.source = canvas.toDataURL('image/png');
             resolve(); // Resuelve la promesa cuando la tarea está completa

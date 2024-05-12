@@ -1,6 +1,6 @@
 export interface Meme{
     id : number;
-    userid : number;
+    userId : number;
     likes : number;
     meme : string;
     description : string;

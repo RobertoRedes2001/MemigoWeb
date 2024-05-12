@@ -1,0 +1,10 @@
+<article [ngClass]="theme" class="row">
+    <section class="col-lg-12">
+        <img [src]="post.meme" [alt]="'Un memingo de '+userdata.uid">
+        <h2 (click)="navigateToUser()">{{userdata.username}}</h2>
+        <h3>{{userdata.uid}}</h3>
+        <h2 class="bi bi-download"></h2>
+        <h2 id="like" (click)="likePost()" class="bi bi-heart"></h2>
+        <p>{{post.description}}</p>
+    </section>
+</article>

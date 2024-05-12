@@ -1,1 +1,3 @@
-<p>home works!</p>
+@for (meme of memes; track $index) {
+    <app-post [post]="meme"></app-post>
+}
