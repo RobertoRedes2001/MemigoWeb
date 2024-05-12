@@ -4,7 +4,7 @@
     <div id="form" class="row">
         <form (submit)="register($event)" [formGroup]="registerForm" class="register-form row">
             <div class="col-lg-6 col-md-12">
-                <section class="col-12 sect-1">
+                <section class="col-12">
                     <div class="mb-3">
                       <mat-form-field>
                         <mat-label>Nombre de usuario</mat-label>
@@ -61,7 +61,9 @@
                     <div class="mb-3">
                       <img class="picture"  id="profile" [src]="profilepic">
                       <br>
-                      <input type="file" (change)="fileChangeEvent($event)"/>
+                      <label for="file" class="file">
+                      </label>
+                      <input  id="file" type="file" (change)="fileChangeEvent($event)"/>
                     </div>
                     <button type="submit" [disabled]="!registerForm.controls.termsAndConditions.value">Registrarse</button>
                 </section>

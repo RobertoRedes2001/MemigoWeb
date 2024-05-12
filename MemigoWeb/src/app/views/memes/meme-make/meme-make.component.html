@@ -1,24 +1,36 @@
-<div class="contenedor-imagen">
-    <span class="momazo-text">{{ text1 }}</span>
-    <span class="momazo-text-fondo">{{ text2 }}</span>
-    <img id="meme" class="momazo-img" [src]="imageSrc">
-    <br>
-    <mat-form-field>
-        <mat-label>Texto 1</mat-label>
-        <input type="text" matInput (input)="updateTextUp($event)"placeholder="Texto encima de la imagen">
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-        <mat-label>Texto 2</mat-label>
-        <input type="text" matInput (input)="updateTextDown($event)" placeholder="Texto en el fondo de la imagen">
-    </mat-form-field>
-    <br>
-    <input type="file" (change)="fileChangeEvent($event)">
-    <br>
-    <button (click)="downloadMeme()">Descargar Imagen</button>
-    <br>
-    <button (click)="afterDialog()">Publicar Meme</button>
-    @for (item of templates; track $index) {
-        <img style="width: 50px; height: 50px;" [src]="item.template" (click)="pickTemplate(item.template)">
-    }
+<div class="container-fluid" [ngClass]="theme">
+    <div class="row">
+        <article class="col-lg-6 col-md-12">
+            <section class="maker-content-1 meme-container"> 
+                <span class="momazo-text">{{ text1 }}</span>
+                <span class="momazo-text-fondo">{{ text2 }}</span>
+                <img id="meme" class="momazo-img" [src]="imageSrc">
+            </section>
+            <section class="maker-content-1"> 
+                <button (click)="downloadMeme()" class="btn-download"><h2 class="bi bi-download"></h2></button>
+                <button (click)="afterDialog()" class="btn-publish"><h2 class="bi bi-upload"></h2></button>
+            </section>
+        </article>
+        <article class="col-lg-6 col-md-12">
+            <section class="maker-content-2" style="margin-left: 75px;"> 
+            @for (item of templates; track $index) {
+                <img class="template-list" [src]="item.template" (click)="pickTemplate(item.template)">
+            }
+            </section>
+            <section class="maker-content-2"> 
+            <label for="file" class="file" style="margin-left: 50px;"></label>
+            <input  id="file" type="file" (change)="fileChangeEvent($event)"/>
+            </section>
+            <section class="maker-content-2"> 
+                <mat-form-field>
+                    <mat-label>Texto 1</mat-label>
+                    <input type="text" matInput (input)="updateTextUp($event)" placeholder="Texto encima de la imagen">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Texto 2</mat-label>
+                    <input type="text" matInput (input)="updateTextDown($event)" placeholder="Texto en el fondo de la imagen">
+                </mat-form-field>
+            </section>
+        </article>
+    </div>
 </div>

@@ -1,72 +1,120 @@
-
 #form {
- height: 100vh;
- margin-left: 100px;
+  height: 100vh;
+  margin-left: 100px;
 }
-  
-  .register-form {
-    margin: auto;
-    width: 100%;
-  }
-  
-  .register-form > section {
-    margin-bottom: 16px;
-  }
 
-  img{
-    width: 250px;
-    height: 250px;
-  }
+.register-form {
+  margin: auto;
+  width: 100%;
+}
 
-  .light-theme .register-form button,
-  .dark-theme .register-form button {
-    width: 250px;
-    padding: 10px;
-    margin-top: 16px;
-    margin-bottom: 16px;
-    border: none;
-    border-radius: 20px;
-  }
-  
-  .light-theme .register-form button {
-    background-color: #f44336;
-    color: white;
-  }
+.register-form > section {
+  margin-bottom: 16px;
+}
 
-  .light-theme .register-form button:disabled {
-    opacity: 0.5; 
-    cursor: not-allowed;
-  }
+img {
+  width: 250px;
+  height: 250px;
+}
 
-  .light-theme .register-form button:not(:disabled):hover {
-    background-color: #a4161a;
-  }
-  
-  .dark-theme .register-form button {
-    background-color: #10BCB9;
-    color: black;
-  }
+.light-theme .register-form button,
+.dark-theme .register-form button {
+  width: 250px;
+  padding: 10px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  border: none;
+  border-radius: 20px;
+}
 
-  .dark-theme .register-form button:disabled {
-    opacity: 0.5; 
-    cursor: not-allowed;
-  }
-  
+.light-theme .register-form button {
+  background-color: #f44336;
+  color: white;
+}
 
-  .dark-theme .register-form button:not(:disabled):hover {
-    background-color: #14E9F5;
-  }
-  
+.light-theme .register-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
-  .mat-mdc-form-field {
-    width: 75%;
-  }
+.light-theme .register-form button:not(:disabled):hover {
+  background-color: #a4161a;
+}
 
-  .light-theme h1{
-    color: black;
-  }
+.dark-theme .register-form button {
+  background-color: #10bcb9;
+  color: black;
+}
 
-  .dark-theme h1{
-    color: white;
-  }
-  
+.dark-theme .register-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dark-theme .register-form button:not(:disabled):hover {
+  background-color: #14e9f5;
+}
+
+.mat-mdc-form-field {
+  width: 75%;
+}
+
+.light-theme h1 {
+  color: black;
+}
+
+.dark-theme h1 {
+  color: white;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+/* Light Theme */
+.light-theme .file::before {
+  background-color: #f44336;
+  width: 250px;
+  margin-left: 1px;
+  margin-top: 20px;
+  text-align: center;
+  color: white;
+}
+
+.light-theme .file:hover::before {
+  background-color: #a4161a;
+}
+
+.light-theme .file::before {
+  content: "Subir foto";
+  display: inline-block;
+  padding: 8px 16px;
+  border: 3px solid white;
+  border-radius: 10px;
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+/* Dark Theme */
+.dark-theme .file::before {
+  background-color: #10bcb9;
+  width: 250px;
+  margin-left: 1px;
+  margin-top: 20px;
+  text-align: center;
+  color: black;
+}
+
+.dark-theme .file:hover::before {
+  background-color: #14e9f5;
+}
+
+.dark-theme .file::before {
+  content: "Subir foto";
+  display: inline-block;
+  padding: 8px 16px;
+  border: 3px solid black;
+  border-radius: 10px;
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+

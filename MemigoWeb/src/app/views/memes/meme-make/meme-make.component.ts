@@ -12,11 +12,12 @@ import { Template } from '../../../interfaces/templates.interfaces';
 import { MemePost } from '../../../interfaces/meme.interfaces';
 import { LoginDialogComponent } from '../../../components/login-dialog/login-dialog.component';
 import { UsersService } from '../../../services/users.service';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-meme-make',
   standalone: true,
-  imports: [MatInputModule],
+  imports: [MatInputModule,NgClass],
   templateUrl: './meme-make.component.html',
   styleUrl: './meme-make.component.scss'
 })
@@ -146,6 +147,11 @@ export class MemeMakeComponent {
   }
 
   ngOnInit(){
+    if(localStorage.getItem('theme')==null){
+      localStorage.setItem('theme','light-theme');
+    }
+    this.theme = localStorage.getItem('theme');
     this.getTemplates();
   }
+   
 }
