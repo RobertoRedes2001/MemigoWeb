@@ -21,8 +21,7 @@ export class PostComponent {
   memesServ = inject(MemesService);
   userServ = inject(UsersService);
   routerService = inject(Router);
-  @ViewChild('like') likeElement!: ElementRef;
-  @Input() post : Meme = { id: 0, userId: 0, likes: 0, meme: "", description: "", post: new Date() };  
+  @Input() post : Meme = { id: 0, userId: 0, likes: 0, meme: "", postDesc: "", post: new Date() };  
   userdata : {uid:string, username:string} = {uid:"", username:""};
   theme : string | null = '';
   liked : boolean = false;
@@ -37,19 +36,16 @@ export class PostComponent {
 
   likePost(){
     if(this.liked){
-      this.like();
-      this.liked = true;
-      this.likeElement.nativeElement.classList.remove('bi-heart');
-      this.likeElement.nativeElement.classList.add('bi-heart-fill');
-    }else{
       this.dislike();
       this.liked = false;
-      this.likeElement.nativeElement.classList.remove('bi-heart-fill');
-      this.likeElement.nativeElement.classList.add('bi-heart');
+    }else{
+      this.like();
+      this.liked = true;
     }
   }
 
   getUser(){
+    console.log(this.post)
     this.userServ.getById(this.post.userId).subscribe((response) => {
       this.userdata.uid = response.uid;
       this.userdata.username = response.username;

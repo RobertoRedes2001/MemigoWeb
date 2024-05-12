@@ -39,23 +39,23 @@ export class MemesService {
   }
 
   public setLike(id: number): Observable<Meme> {
-    return this.http.put<Meme>(this.apiHead+'api/memes/like/'+id,{ headers: this.headers }).pipe(
+    return this.http.put<Meme>(this.apiHead+'api/memes/like/'+id, null, { headers: this.headers }).pipe(
       map(response => response),
       catchError(error => {
         throw error;
       })
-    );;
+    );
   }
-
+  
   public setDislike(id: number): Observable<Meme> {
-    return this.http.put<Meme>(this.apiHead+'api/memes/like/'+id,{ headers: this.headers }).pipe(
+    return this.http.put<Meme>(this.apiHead+'api/memes/dislike/'+id, null, { headers: this.headers }).pipe(
       map(response => response),
       catchError(error => {
         throw error;
       })
-    );;
+    );
   }
-
+  
   deleteMeme(id: number): Observable<string> {
     return this.http.delete(this.apiHead+'api/memes/delete/' + id, { headers: this.headers,responseType: 'text' })
       .pipe(

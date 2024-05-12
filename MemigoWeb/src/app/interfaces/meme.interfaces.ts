@@ -1,10 +1,10 @@
 export interface Meme{
     id : number;
-    userId : number;
     likes : number;
     meme : string;
-    description : string;
+    postDesc : string;
     post : Date;
+    userId : number;
 }
 
 export interface MemePost{
