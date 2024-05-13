@@ -44,6 +44,7 @@ public class MemeController implements IMemeController{
         List<MemeDTO> memeDTOs = new ArrayList<>();
         for (Meme meme : memeServ.getAll()) {
             MemeDTO memeDTO = memeMapper.memeToMemeDTO(meme);
+            memeDTO.setUserId(memeDTO.getUser().getId());
             memeDTO.setUser(null);
             memeDTOs.add(memeDTO);
         }

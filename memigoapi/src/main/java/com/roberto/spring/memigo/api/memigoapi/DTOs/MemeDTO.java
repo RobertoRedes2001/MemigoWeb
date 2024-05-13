@@ -19,5 +19,6 @@ public class MemeDTO {
     private String postDesc;
     private int likes;
     private Date postDate;
+    private int userId;
     
 }

@@ -63,6 +63,7 @@ public class UserController implements IUserController {
             if(uid.equals(user.getUid())){
                 userDTO = userMapper.userToUserDTO(user);
                 userDTO.setPassword(null);
+                System.out.println(userDTO);
                 return ResponseEntity.ok().body(userDTO);
             }    
         }
@@ -72,7 +73,6 @@ public class UserController implements IUserController {
     @GetMapping("/users/byname")
     public ResponseEntity<?> getUserByName(@PathVariable("name") String name) {
         String n1 = name.replaceAll("\\s", "").toLowerCase();
-        System.out.println(n1);
         List<UserDTO> userDTOs = new ArrayList<>();
         for (User user : userServ.getAll()) {
             String n2 = user.getUsername().toLowerCase().replaceAll("\\s", "");
