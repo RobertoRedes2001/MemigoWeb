@@ -23,3 +23,9 @@ export interface UserUpdate{
     username : string;
     userpfp : string;
 }
+
+export interface UserSearch{
+    uid : string;
+    username : string;
+    userpfp : string;
+}

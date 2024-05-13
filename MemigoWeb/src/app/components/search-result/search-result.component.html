@@ -1,0 +1,5 @@
+<div [ngClass]="theme" class="user-container">
+    <img [src]="user.userpfp">
+    <h3 (click)="navigateTo()">{{user.username}}</h3>
+    <p>{{user.uid}}</p>
+</div>

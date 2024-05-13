@@ -4,14 +4,34 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link" routerLink="/home" RouterLinkActive="active"><h2>VER MEMES</h2></a>
-        <a class="nav-link" routerLink="/search" RouterLinkActive="active"><h2>BUSCAR UN USUARIO</h2></a>
         <a class="nav-link" routerLink="/maker" RouterLinkActive="active"><h2>HACER UN MEMIGO</h2></a>
+      </div>
+      <form class="usersearch-form">
+        <mat-form-field class="usersearch-full-width">
+          <mat-label>Busqueda...</mat-label>
+          <input matInput
+                 aria-label="Busqueda..."
+                 [matAutocomplete]="auto"
+                 [formControl]="usersCtrl">
+          <mat-autocomplete #auto="matAutocomplete">
+            @for (user of filteredUsers | async; track user) {
+              <mat-option (click)="navigateTo(user.uid)" [value]="user.username">
+                <img alt="" class="usersearch-option-img" [src]="user.userpfp" height="25">
+                <span>{{user.username}}</span> |
+                <small>{{user.uid}}</small>
+              </mat-option>
+            }
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+      <div class="navbar-nav">
         <a class="nav-link" routerLink="/settings" RouterLinkActive="active"><h2 class="bi bi-gear"></h2></a>
         <a routerLink="/{{profilelink}}" RouterLinkActive="active"><img [src]="profilepic"></a>
       </div>
     </div>
   </div>
 </nav>
+
