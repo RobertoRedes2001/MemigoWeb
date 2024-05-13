@@ -63,7 +63,6 @@ public class UserController implements IUserController {
             if(uid.equals(user.getUid())){
                 userDTO = userMapper.userToUserDTO(user);
                 userDTO.setPassword(null);
-                System.out.println(userDTO);
                 return ResponseEntity.ok().body(userDTO);
             }    
         }
