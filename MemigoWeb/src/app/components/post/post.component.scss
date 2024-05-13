@@ -1,0 +1,80 @@
+.post-container {
+    margin: 20px auto; /* Añadir margen a todos los lados para separar del borde */
+    padding: 20px; /* Añadir relleno para separar el contenido del borde */
+    border-radius: 5px; /* Añadir bordes redondeados */
+    width: 60%; /* Establecer un ancho máximo para el contenedor */
+}
+
+.post-container img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.post-container h2 {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.post-container .bi {
+    font-size: 24px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.post-container p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+
+.light-theme .post-container{
+    background-color: red;
+}
+
+.light-theme .post-container h2 {
+    color: white;
+}
+
+.light-theme .post-container h2:hover {
+    color: #EF9A9A;
+}
+
+.light-theme .post-container .bi {
+    font-size: 24px;
+}
+
+.light-theme .post-container .bi:hover {
+    color: #EF9A9A;
+}
+
+.light-theme .post-container p {
+    color: white;
+}
+
+.dark-theme .post-container{
+    background-color: #10BCB9;
+}
+
+.dark-theme .post-container h2 {
+    color: black;
+}
+
+.dark-theme .post-container h2:hover {
+    color: #10322D;
+}
+
+.dark-theme .post-container .bi {
+    font-size: 24px;
+}
+
+.dark-theme .post-container .bi:hover {
+    color: #10322D;
+}
+
+.dark-theme .post-container p {
+    color: black;
+}

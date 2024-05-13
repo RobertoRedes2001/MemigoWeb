@@ -1,3 +1,5 @@
 @for (meme of memes; track $index) {
-    <app-post [post]="meme"></app-post>
+    <div [ngClass]="theme" class="post-container">
+        <app-post [post]="meme"></app-post>
+    </div>
 }

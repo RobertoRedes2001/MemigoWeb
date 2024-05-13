@@ -15,6 +15,7 @@ export class HomeComponent {
 
   memesServ = inject(MemesService);
   memes : Meme[] = [] 
+  theme : string | null = '';
 
   getMemes(){
     this.memesServ.getMemes().subscribe((response) => {
@@ -23,6 +24,10 @@ export class HomeComponent {
   }
 
   ngOnInit(){
+    if(localStorage.getItem('theme')==null){
+      localStorage.setItem('theme','light-theme');
+    }
+    this.theme = localStorage.getItem('theme');
     this.getMemes();
   }
 }

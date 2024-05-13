@@ -17,7 +17,6 @@ export class PostComponent {
 
   constructor(private elementRef: ElementRef) {}
 
-  
   memesServ = inject(MemesService);
   userServ = inject(UsersService);
   routerService = inject(Router);
@@ -38,9 +37,11 @@ export class PostComponent {
     if(this.liked){
       this.dislike();
       this.liked = false;
+      this.post.likes--
     }else{
       this.like();
       this.liked = true;
+      this.post.likes++
     }
   }
 
@@ -62,7 +63,7 @@ export class PostComponent {
     html2canvas(container).then(canvas => {
        const image = canvas.toDataURL('image/png');
        const link = document.createElement('a');
-       link.download = 'mimemingo.png';
+       link.download = 'memingo_de_'+this.userdata.username+'.png';
        link.href = image;
        link.click();
      });

@@ -1,0 +1,16 @@
+.post-container{
+    width: 50%;
+    align-self: center;
+    margin: auto;
+    border-radius: 5px;
+    margin-top: 20px;
+    background-color: #D32F2F;
+}
+
+.light-theme.post-container{
+    background-color: #D32F2F;
+}
+
+.dark-theme.post-container{
+    background-color: #12CDCE;
+}

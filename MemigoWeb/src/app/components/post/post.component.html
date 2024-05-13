@@ -1,10 +1,18 @@
-<article [ngClass]="theme" class="row">
-    <section class="col-lg-12">
-        <img class="meme" [src]="post.meme" [alt]="'Un memingo de '+userdata.uid">
-        <h2 (click)="navigateToUser()">{{userdata.username}}</h2>
-        <p>{{userdata.uid}}</p>
-        <h2 (click)="downloadMeme()" class="bi bi-download"></h2>
-        <h2 id="like" (click)="likePost()" [ngClass]="liked?'bi bi-heart-fill':'bi bi-heart'">{{post.likes}}</h2>
-        <p>{{post.postDesc}}</p>
+<article [ngClass]="theme">
+    <section class="col-lg-12 post-container">
+        <img class="meme img-fluid" [src]="post.meme" [alt]="'Un memingo de '+userdata.uid">
+        <div class="row">
+            <section class="col-lg-5 col-md-6 col-sm-12">
+                <h2 class="text-lg" (click)="navigateToUser()">{{userdata.username}}</h2>
+            </section>
+            <section class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
+                <h2 id="like" (click)="likePost()" [ngClass]="liked?'bi bi-heart-fill':'bi bi-heart'"> {{post.likes}}</h2>
+            </section>
+            <section class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
+                <h2 (click)="downloadMeme()" class="bi bi-download"></h2>
+            </section>
+        </div>
+        <p class="text-md">{{userdata.uid}}</p>
+        <p class="text-sm">{{post.postDesc}}</p>
     </section>
 </article>
