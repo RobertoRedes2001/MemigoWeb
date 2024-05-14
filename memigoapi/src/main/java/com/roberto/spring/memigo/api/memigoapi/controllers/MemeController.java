@@ -66,14 +66,19 @@ public class MemeController implements IMemeController{
     public ResponseEntity<?> getMemesByUser(@PathVariable("id") int id) {
         List<MemeDTO> memeDTOs = new ArrayList<>();
         for (Meme meme : memeServ.getAll()) {
+            System.out.println(meme.getUser().getId());
             if (meme.getUser().getId()==id) {
                 MemeDTO memeDTO = memeMapper.memeToMemeDTO(meme);
+                memeDTO.setUserId(memeDTO.getUser().getId());
                 memeDTO.setUser(null);
                 memeDTOs.add(memeDTO);
-                return ResponseEntity.ok().body(memeDTOs);
             } 
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario con ID " + id + " no encontrado.");
+        if(memeDTOs.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario con ID " + id + " no encontrado.");
+        }else{
+            return ResponseEntity.ok().body(memeDTOs);
+        }
     }
 
     @PostMapping("/memes/add")

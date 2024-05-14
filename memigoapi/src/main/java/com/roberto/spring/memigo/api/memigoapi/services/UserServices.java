@@ -57,14 +57,16 @@ public class UserServices {
         List<Role> roles = new ArrayList<>();
 
         optionalRoleUser.ifPresent(roles::add);
-
+        
         if(usu.isAdmin()){
             Optional<Role> optionalRoleAdmin = roleRep.findByName("ROLE_ADMIN");
             optionalRoleAdmin.ifPresent(roles::add);
         }
 
         usu.setRoles(roles);
-        usu.setPassword(passwordEncoder.encode(usu.getPassword()));
+        if (usu.getId()==0) {
+            usu.setPassword(passwordEncoder.encode(usu.getPassword()));
+        }
         userRep.save(usu);
     }
 

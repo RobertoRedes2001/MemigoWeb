@@ -92,6 +92,7 @@ public class UserController implements IUserController {
     @PostMapping("users/add")
     public UserDTO save(@RequestBody User usu) throws Exception {
         UserDTO user = userMapper.userToUserDTO(usu);
+        usu.setId(0);
         userServ.SaveOrUpdate(usu);
         return user;
     }
