@@ -46,7 +46,6 @@ export class PostComponent {
   }
 
   getUser(){
-    console.log(this.post)
     this.userServ.getById(this.post.userId).subscribe((response) => {
       this.userdata.uid = response.uid;
       this.userdata.username = response.username;

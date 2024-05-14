@@ -25,8 +25,8 @@ export class MemesService {
     return this.http.get<Meme>(this.apiHead+'api/memes/'+id,{ headers: this.headers });
   }
 
-  public getByUser(uid: number): Observable<Meme> {
-    return this.http.get<Meme>(this.apiHead+'api/memes/byuser/'+uid,{ headers: this.headers });
+  public getByUser(uid: number): Observable<Meme[]> {
+    return this.http.get<Meme[]>(this.apiHead+'api/memes/byuser/'+uid,{ headers: this.headers });
   }
 
   public addMeme(meme: any): Observable<any> {

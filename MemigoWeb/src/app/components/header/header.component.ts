@@ -78,7 +78,7 @@ export class HeaderComponent {
     const filterValue = value.toLowerCase();
     return this.users.filter(user => user.username.toLowerCase().includes(filterValue));
   }
-
+  
   ngOnInit() {
     if (localStorage.getItem('theme') == null) {
       localStorage.setItem('theme', 'light-theme');

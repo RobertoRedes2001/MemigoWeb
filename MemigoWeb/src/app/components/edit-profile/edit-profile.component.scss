@@ -1,0 +1,114 @@
+.container {
+  width: 450px;
+}
+
+h2 {
+  margin: 20px;
+}
+
+.close {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin-left: 150px;
+}
+
+.light-theme .close{
+  color: black;
+}
+
+.light-theme .title{
+  color: black;
+}
+
+.dark-theme .close{
+  color: white;
+}
+
+.dark-theme .title{
+  color: white;
+}
+
+.title {
+  width: 170px;
+}
+
+.light-theme mat-dialog-actions button {
+  color: white;
+  background-color: #f44336;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+
+.light-theme mat-dialog-actions button:hover {
+  background-color: #a4161a;
+}
+
+.dark-theme mat-dialog-actions button {
+  color: black;
+  background-color: #10bcb9;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+
+.dark-theme mat-dialog-actions button:hover {
+  background-color: #14e9f5; /* Cambia el color de fondo al pasar sobre el botón */
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-picture-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    position: relative; /* Añadido */
+  }
+  
+  .profile-picture-container img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.50);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+  .camera-icon {
+    color: white;
+  }
+  
+  .overlay:hover .camera-icon {
+    color: rgb(212, 211, 211);
+  }
+
+  .overlay:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+  
+  .mat-mdc-form-field {
+    width: 100%;
+  }
+  

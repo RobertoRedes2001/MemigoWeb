@@ -1,0 +1,98 @@
+.profile {
+    max-width: 100%;
+    margin: auto;
+    padding: 20px;
+}
+
+.light-theme .profile {
+    background-color: #A4161A;
+}
+
+.dark-theme .profile {
+    background-color: #14E9F5;
+}
+
+.profile-header {
+    text-align: center;
+}
+
+.profile-header img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.uid {
+    margin: 0;
+    font-size: 15px;
+}
+
+.light-theme .uid{
+    color: white;
+}
+
+.dark-theme .uid{
+    color: black;
+}
+
+.profile-header h3 {
+    margin: auto;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.light-theme .profile-header{
+    color: white;
+}
+
+.dark-theme .profile-header{
+    color: black;
+}
+
+.post-container{
+    width: 50%;
+    align-self: center;
+    margin: auto;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.light-theme.post-container{
+    background-color: #D32F2F;
+}
+
+.dark-theme.post-container{
+    background-color: #12CDCE;
+}
+
+.not-found{
+  display: flex; /* Utiliza flexbox para el diseño */
+  align-items: center; /* Centra verticalmente el contenido */
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.dark-theme .my-user-button {
+    margin-top: 20px;
+    border: 2px solid #10BCB9; /* Borde de 2px sólido azul */
+    background-color: #13DCDD; /* Fondo de color azul claro */
+    color: black; /* Texto en color blanco */
+  }
+  
+.dark-theme .my-user-button:hover {
+    cursor: pointer; 
+    background-color: #106565; 
+}
+
+.light-theme .my-user-button {
+    margin-top: 20px;
+    border: 2px solid #F44336;
+    background-color: #C62828; 
+    color: white; 
+}
+  
+.light-theme .my-user-button:hover {
+    cursor: pointer; 
+    background-color: #EF9A9A; 
+}

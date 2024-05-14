@@ -8,6 +8,14 @@ h2{
     margin: 20px;
 }
 
+.dark-theme h2{
+    color: white;
+}
+
+.light-theme h2{
+    color: black;
+}
+
 .light-theme mat-dialog-actions button {
     color: white; 
     background-color: #F44336; 

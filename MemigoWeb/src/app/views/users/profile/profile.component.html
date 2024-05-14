@@ -1,1 +1,24 @@
-<p>profile works!</p>
+<div [ngClass]="theme">
+    <div class="profile">
+        <div class="profile-header text-center">
+            <img id="profile" [src]="src" alt="Foto de perfil" class="img-fluid rounded-circle mb-3">
+            <h2>{{user.username}}</h2>
+            <h2 class="uid">{{user.uid}}</h2>
+            <h3>Post: {{posts}} - Likes: {{likes}}</h3>
+            <button class="my-user-button" (click)="editProfile()" [ngStyle]="isMyUser ? {'display': 'inline-block'} : {'display': 'none'}">Editar Perfil</button>
+        </div>
+    </div>
+</div>
+@if (memes.length>0) {
+    @for (meme of memes; track $index) {
+        <div [ngClass]="theme" class="post-container">
+            <app-post [post]="meme"></app-post>
+        </div>
+    }
+}@else {
+    <div [ngClass]="theme" class="not-found d-flex flex-column align-items-center justify-content-center">
+        <h1 [ngStyle]="theme === 'light-theme' ? { 'color': 'white' } : { 'color': 'black' }">No se han realizado publicaciones</h1>
+        <img src="https://i.pinimg.com/originals/40/0c/e0/400ce0a559eb0ca251951e20061faa9d.png" class="img-fluid" alt="No encontrado">
+    </div>
+    
+}

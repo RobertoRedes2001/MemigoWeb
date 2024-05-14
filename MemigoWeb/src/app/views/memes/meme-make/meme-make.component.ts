@@ -48,7 +48,6 @@ export class MemeMakeComponent {
   }
 
   updateTextUp(event: any) {
-
     this.text1 = event.target.value;
   }
 
@@ -108,7 +107,6 @@ export class MemeMakeComponent {
   async afterDialog() {
     const dialogRef = this.dialog.open(PostDialogComponent);
     try {
-      // Espera a que se complete la obtención de la información de la imagen
       await this.getPictureInfo();
       
       dialogRef.componentInstance.message.subscribe((message: string) => {
@@ -142,7 +140,6 @@ export class MemeMakeComponent {
       meme : this.source,
       postDesc : this.textpost
     }
-    console.log(meme);
     this.postMeme(meme);
   }
 
