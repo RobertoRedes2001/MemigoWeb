@@ -55,10 +55,17 @@
 
 .login-form h1 {
   margin-bottom: 25px; /* Espacio inferior */
-  background-color: white;
   background-size: cover;
   border-radius: 20px;
   padding-bottom: 5px;
+}
+
+.light-theme .login-form h1 {
+  background-color: white;
+}
+
+.dark-theme .login-form h1 {
+  background-color: black;
 }
 
 .mat-mdc-form-field {
