@@ -86,7 +86,8 @@ input[type="file"] {
 }
 
 .light-theme .file::before {
-  content: "Subir foto";
+  content: "\F219";
+  font-family: "bootstrap-icons";
   display: inline-block;
   padding: 8px 16px;
   border: 3px solid white;
@@ -96,6 +97,8 @@ input[type="file"] {
 
 /* Dark Theme */
 .dark-theme .file::before {
+  content: "\F219";
+  font-family: "bootstrap-icons";
   background-color: #10bcb9;
   width: 250px;
   margin-left: 1px;

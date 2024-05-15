@@ -1,13 +1,16 @@
 <div class="container" [ngClass]="theme">
     <div class="row">
-      <div class="col-md-4 col-lg-4 col-sm-12">
-        <button (click)="logOut()">Cerrar Sesión</button>
+      <div class="col-md-3 col-lg-3 col-sm-12">
+        <button (click)="logOut()">{{'configuration_button1' | translate}}</button>
       </div>
-      <div class="col-md-4 col-lg-4 col-sm-12 mt-2 mt-md-0"> 
-        <button (click)="accountInDecline()">Borrar Cuenta</button>
+      <div class="col-md-3 col-lg-3 col-sm-12 mt-2 mt-md-0"> 
+        <button (click)="accountInDecline()">{{'configuration_button2' | translate}}</button>
       </div>
-      <div class="col-md-4 col-lg-4 col-sm-12 mt-2 mt-md-0"> 
-        <button (click)="toggleTheme()">Cambiar Tema</button>
+      <div class="col-md-3 col-lg-3 col-sm-12 mt-2 mt-md-0"> 
+        <button (click)="toggleLanguage()">{{'configuration_button3' | translate}}</button>
+      </div>
+      <div class="col-md-3 col-lg-3 col-sm-12 mt-2 mt-md-0"> 
+        <button (click)="toggleTheme()">{{'configuration_button4' | translate}}</button>
       </div>
     </div>
 </div>

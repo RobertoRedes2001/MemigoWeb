@@ -15,11 +15,12 @@ import { LoginDialogComponent } from '../../../components/login-dialog/login-dia
 import { Router } from '@angular/router';
 import html2canvas from 'html2canvas';
 import { AuthService } from '../../../services/auth.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CropperModalComponent,NgClass,ReactiveFormsModule,MatCheckbox,MatInputModule,MatFormFieldModule,MatSelectModule],
+  imports: [TranslateModule,CropperModalComponent,NgClass,ReactiveFormsModule,MatCheckbox,MatInputModule,MatFormFieldModule,MatSelectModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
@@ -85,6 +86,10 @@ export class RegisterComponent {
       if(uid == user.uid){this.exist = true};
     });
   } 
+
+  checkTheBox(){
+    window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
+  }
 
   fileChangeEvent(event: Event): void {
     const dialogRef = this.dialog.open(CropperModalComponent, {

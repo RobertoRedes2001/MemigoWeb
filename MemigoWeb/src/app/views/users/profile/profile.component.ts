@@ -10,11 +10,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { EditProfileComponent } from '../../../components/edit-profile/edit-profile.component';
 import html2canvas from 'html2canvas';
 import { SafeUrl } from '@angular/platform-browser';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [PostComponent, NgClass, NgStyle, EditProfileComponent],
+  imports: [TranslateModule,PostComponent, NgClass, NgStyle, EditProfileComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
 })

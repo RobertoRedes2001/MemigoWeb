@@ -19,16 +19,16 @@
             </section>
             <section class="maker-content-2"> 
             <label for="file" class="file" style="margin-left: 50px;"></label>
-            <input  id="file" type="file" (change)="fileChangeEvent($event)"/>
+            <input id="file" type="file" (change)="fileChangeEvent($event)"/>
             </section>
             <section class="maker-content-2"> 
                 <mat-form-field>
-                    <mat-label>Texto 1</mat-label>
-                    <input type="text" matInput (input)="updateTextUp($event)" placeholder="Texto encima de la imagen">
+                    <mat-label>{{'meme-maker_lbl1' | translate}}</mat-label>
+                    <input type="text" matInput (input)="updateTextUp($event)" placeholder="{{ 'meme-maker_ph1' | translate }}">
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label>Texto 2</mat-label>
-                    <input type="text" matInput (input)="updateTextDown($event)" placeholder="Texto en el fondo de la imagen">
+                    <mat-label>{{'meme-maker_lbl2' | translate}}</mat-label>
+                    <input type="text" matInput (input)="updateTextDown($event)" placeholder="{{ 'meme-maker_ph2' | translate }}">
                 </mat-form-field>
             </section>
         </article>

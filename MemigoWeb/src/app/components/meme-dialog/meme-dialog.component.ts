@@ -5,16 +5,16 @@ import { NgClass } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-login-dialog',
+  selector: 'app-meme-dialog',
   standalone: true,
   imports: [TranslateModule,NgClass, MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatButtonModule],
-  templateUrl: './login-dialog.component.html',
-  styleUrl: './login-dialog.component.scss'
+  templateUrl: './meme-dialog.component.html',
+  styleUrl: './meme-dialog.component.scss'
 })
-export class LoginDialogComponent {
+export class MemeDialogComponent {
   theme : string | null = '';
 
-  constructor(public dialogRef: MatDialogRef<LoginDialogComponent>){}
+  constructor(public dialogRef: MatDialogRef<MemeDialogComponent>){}
 
   ngOnInit(){
     if(localStorage.getItem('theme')==null){

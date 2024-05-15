@@ -5,18 +5,19 @@ import { UsersService } from '../../../services/users.service';
 import { User } from '../../../interfaces/user.interfaces';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteDialogComponent } from '../../../components/delete-dialog/delete-dialog.component';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-configuration',
   standalone: true,
-  imports: [NgClass,DeleteDialogComponent],
+  imports: [TranslateModule,NgClass,DeleteDialogComponent],
   templateUrl: './configuration.component.html',
   styleUrl: './configuration.component.scss'
 })
 
 export class ConfigurationComponent {
 
-  constructor(public service : UsersService,public dialog: MatDialog){}
+  constructor(private translateService : TranslateService, public service : UsersService,public dialog: MatDialog){}
 
   theme : string | null = '';
   authService = inject(AuthService);
@@ -41,6 +42,17 @@ export class ConfigurationComponent {
     const newTheme = currentTheme === 'light-theme' ? 'dark-theme' : 'light-theme';
     localStorage.setItem('theme', newTheme);
     location.reload();
+  }
+
+  public toggleLanguage(){
+    if(localStorage.getItem('selectedLanguage')!='es'){
+      this.translateService.use('es');
+      localStorage.setItem('selectedLanguage', 'es');
+    }else{
+      this.translateService.use('en');
+      localStorage.setItem('selectedLanguage', 'en');
+    }
+    window.location.reload();
   }
 
   ngOnInit(){

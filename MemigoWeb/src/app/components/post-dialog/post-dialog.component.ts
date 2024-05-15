@@ -4,11 +4,12 @@ import { MAT_DIALOG_DATA, MatDialogActions, MatDialogClose,
 import { MatInputModule } from '@angular/material/input';
 import { NgClass } from '@angular/common';
 import { FormControl ,ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-post-dialog',
   standalone: true,
-  imports: [NgClass,MatInputModule,MatDialogActions,MatDialogContent,MatDialogClose,ReactiveFormsModule],
+  imports: [TranslateModule,NgClass,MatInputModule,MatDialogActions,MatDialogContent,MatDialogClose,ReactiveFormsModule],
   templateUrl: './post-dialog.component.html',
   styleUrl: './post-dialog.component.scss'
 })

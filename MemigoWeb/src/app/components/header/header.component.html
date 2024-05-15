@@ -1,19 +1,20 @@
 <nav [ngClass]="theme" class="navbar navbar-expand-lg">
   <div class="container-fluid">
-    <p class="navbar-brand">Memigo</p>
+    <p class="navbar-brand">
+      <img [src]="theme=='light-theme'?'../../../assets/images/memigo_cls.png':'../../../assets/images/memigo_re.png'"  alt="Logo" style="margin-left: 20px;">
+    </p>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" routerLink="/home" RouterLinkActive="active"><h2>VER MEMES</h2></a>
-        <a class="nav-link" routerLink="/maker" RouterLinkActive="active"><h2>HACER UN MEMIGO</h2></a>
+        <a class="nav-link" routerLink="/home" RouterLinkActive="active"><h2>{{'header_home' | translate}}</h2></a>
+        <a class="nav-link" routerLink="/maker" RouterLinkActive="active"><h2>{{'header_maker' | translate}}</h2></a>
       </div>
       <form class="usersearch-form">
         <mat-form-field class="usersearch-full-width">
-          <mat-label>Busqueda...</mat-label>
+          <mat-label>{{'header_search' | translate}}</mat-label>
           <input matInput
-                 aria-label="Busqueda..."
                  [matAutocomplete]="auto"
                  [formControl]="usersCtrl">
           <mat-autocomplete #auto="matAutocomplete">

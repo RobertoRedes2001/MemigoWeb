@@ -1,11 +1,12 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-delete-dialog',
   standalone: true,
-  imports: [NgClass, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent],
+  imports: [TranslateModule,NgClass, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent],
   templateUrl: './delete-dialog.component.html',
   styleUrl: './delete-dialog.component.scss'
 })

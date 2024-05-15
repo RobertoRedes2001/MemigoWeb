@@ -9,11 +9,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { LoginDialogComponent } from '../../../components/login-dialog/login-dialog.component';
 import { NgClass } from '@angular/common';
 import { GlobalConstants } from '../../../common/global-constants';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [NgClass, RouterLink, RouterLinkActive,ReactiveFormsModule,MatInputModule,MatFormFieldModule,MatSelectModule,LoginDialogComponent],
+  imports: [NgClass, RouterLink, RouterLinkActive,ReactiveFormsModule,MatInputModule,MatFormFieldModule,MatSelectModule,LoginDialogComponent,TranslateModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -45,12 +46,7 @@ export class LoginComponent {
           this.routerService.navigate(['/home']);
         },
         error: (error) => {
-          this.dialog.open(LoginDialogComponent, {
-            data: { dialog_header: "Error de Inicio de sesion",
-              dialog_body: "Contraseña o nombre de usuario incorrectos.",
-              dialog_button:"Cerrar"
-             } 
-          });
+          this.dialog.open(LoginDialogComponent);
         }
       });
   }

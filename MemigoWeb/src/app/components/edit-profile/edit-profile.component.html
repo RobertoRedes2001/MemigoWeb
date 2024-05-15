@@ -1,7 +1,7 @@
 <div [ngClass]="theme" class="container">
     <div class="row align-items-center">
         <div class="col-6">
-            <h2 class="title" mat-dialog-title>Editar Perfil</h2>
+            <h2 class="title" mat-dialog-title>{{'edit-profile_h2' | translate}}</h2>
         </div>
         <div class="col-6">
             <button class="close" [mat-dialog-close]="false"><mat-icon>close</mat-icon></button>
@@ -17,15 +17,15 @@
                 </div>
             </div>
             <mat-form-field class="mat-mdc-form-field">
-                <mat-label>Nombre</mat-label>
-                <input [formControl]="nameForm" type="text" matInput placeholder="Tu nombre">
+                <mat-label>{{'edit-profile_lbl' | translate}}</mat-label>
+                <input [formControl]="nameForm" type="text" matInput placeholder="{{'edit-profile_ph' | translate}} ">
                 @if (nameForm.hasError('required')) {
-                    <mat-error>El nombre de usuario es <strong>obligatorio</strong></mat-error>
+                    <mat-error>{{'edit-profile_error_1' | translate}} <strong>{{'edit-profile_error_2' | translate}}</strong></mat-error>
                 }
             </mat-form-field>
         </div>
     </mat-dialog-content>
     <mat-dialog-actions class="row justify-content-end">
-        <button mat-button (click)="sendUser()" [mat-dialog-close]="true">Guardar</button>
+        <button mat-button (click)="sendUser()" [mat-dialog-close]="true">{{'edit-profile_button' | translate}}</button>
     </mat-dialog-actions>
 </div>

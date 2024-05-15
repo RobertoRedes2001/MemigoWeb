@@ -13,11 +13,13 @@ import { AsyncPipe } from '@angular/common';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'memigo-header',
   standalone: true,
   imports: [
+    TranslateModule,
     NgClass,
     MatIconModule,
     RouterLink,

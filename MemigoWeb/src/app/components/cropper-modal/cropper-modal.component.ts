@@ -8,11 +8,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { ImageCropperComponent, ImageCroppedEvent, LoadedImage  } from 'ngx-image-cropper';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { NgClass } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-cropper-modal',
   standalone: true,
-  imports: [NgClass,MatDialogModule, MatButtonModule, ImageCropperComponent],
+  imports: [TranslateModule,NgClass,MatDialogModule, MatButtonModule, ImageCropperComponent],
   templateUrl: './cropper-modal.component.html',
   styleUrl: './cropper-modal.component.scss'
 })

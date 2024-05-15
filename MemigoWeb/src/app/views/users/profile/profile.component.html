@@ -4,8 +4,8 @@
             <img id="profile" [src]="src" alt="Foto de perfil" class="img-fluid rounded-circle mb-3">
             <h2>{{user.username}}</h2>
             <h2 class="uid">{{user.uid}}</h2>
-            <h3>Post: {{posts}} - Likes: {{likes}}</h3>
-            <button class="my-user-button" (click)="editProfile()" [ngStyle]="isMyUser ? {'display': 'inline-block'} : {'display': 'none'}">Editar Perfil</button>
+            <h3>{{'profile_posts' | translate}}{{posts}} - {{'profile_likes' | translate}}{{likes}}</h3>
+            <button class="my-user-button" (click)="editProfile()" [ngStyle]="isMyUser ? {'display': 'inline-block'} : {'display': 'none'}">{{'profile_button' | translate}}</button>
         </div>
     </div>
 </div>
@@ -17,7 +17,7 @@
     }
 }@else {
     <div [ngClass]="theme" class="not-found d-flex flex-column align-items-center justify-content-center">
-        <h1 [ngStyle]="theme === 'light-theme' ? { 'color': 'white' } : { 'color': 'black' }">No se han realizado publicaciones</h1>
+        <h1 [ngStyle]="theme === 'light-theme' ? { 'color': 'white' } : { 'color': 'black' }">{{'profile_notfound' | translate}}</h1>
         <img src="https://i.pinimg.com/originals/40/0c/e0/400ce0a559eb0ca251951e20061faa9d.png" class="img-fluid" alt="No encontrado">
     </div>
     

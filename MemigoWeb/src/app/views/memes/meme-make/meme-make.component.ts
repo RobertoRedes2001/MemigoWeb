@@ -10,14 +10,15 @@ import { MatInputModule } from '@angular/material/input';
 import { TemplatesService } from '../../../services/templates.service';
 import { Template } from '../../../interfaces/templates.interfaces';
 import { MemePost } from '../../../interfaces/meme.interfaces';
-import { LoginDialogComponent } from '../../../components/login-dialog/login-dialog.component';
 import { UsersService } from '../../../services/users.service';
 import { NgClass } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
+import { MemeDialogComponent } from '../../../components/meme-dialog/meme-dialog.component';
 
 @Component({
   selector: 'app-meme-make',
   standalone: true,
-  imports: [MatInputModule,NgClass],
+  imports: [TranslateModule,MatInputModule,NgClass],
   templateUrl: './meme-make.component.html',
   styleUrl: './meme-make.component.scss'
 })
@@ -34,6 +35,7 @@ export class MemeMakeComponent {
   theme : string | null = '';
   source : string = '';
   templates : Template[] = [];
+  
   constructor(public dialog: MatDialog, private elementRef: ElementRef) {}
 
   getTemplates() : void{
@@ -113,23 +115,16 @@ export class MemeMakeComponent {
         this.textpost = message;
       });
   
-      dialogRef.afterClosed().subscribe(async (result: boolean) => {
+      dialogRef.afterClosed().subscribe((result: boolean) => {
         if (result == true) {
           this.publishPost();
-          await this.dialog.open(LoginDialogComponent, {
-            data: { 
-              dialog_header: "Publicacion exitosa",
-              dialog_body: "Meme publicado de forma exitosa en la aplicacion.",
-              dialog_button: "Ok"
-            } 
-          }).afterClosed(); // Espera a que se cierre el diálogo de login
+          this.dialog.open(MemeDialogComponent).afterClosed(); // Espera a que se cierre el diálogo de login
         } else {
           this.textpost = '';
         }
       });
     } catch (error) {
       console.error("Error al obtener información de la imagen:", error);
-      // Manejar el error aquí según sea necesario
     }
   }
   

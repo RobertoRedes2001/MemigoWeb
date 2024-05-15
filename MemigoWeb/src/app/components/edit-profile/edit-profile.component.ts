@@ -1,6 +1,5 @@
 import {
   Component,
-  ElementRef,
   EventEmitter,
   Inject,
   Input,
@@ -22,9 +21,8 @@ import { MatIcon } from '@angular/material/icon';
 import { CropperModalComponent } from '../cropper-modal/cropper-modal.component';
 import { SafeUrl } from '@angular/platform-browser';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
-import html2canvas from 'html2canvas';
 import { UsersService } from '../../services/users.service';
-import { UserUpdate } from '../../interfaces/user.interfaces';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-edit-profile',
@@ -37,6 +35,7 @@ import { UserUpdate } from '../../interfaces/user.interfaces';
     MatDialogContent,
     MatDialogClose,
     ReactiveFormsModule,
+    TranslateModule
   ],
   templateUrl: './edit-profile.component.html',
   styleUrl: './edit-profile.component.scss',

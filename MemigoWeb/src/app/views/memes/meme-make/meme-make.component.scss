@@ -113,7 +113,8 @@
   }
   
   .light-theme .file::before {
-    content: "SELECCIONAR IMAGEN DEL DISPOSITIVO";
+    content: "\F219";
+    font-family: "bootstrap-icons";
     display: inline-block;
     padding: 8px 16px;
     border: 3px solid white;
@@ -136,7 +137,8 @@
   }
   
   .dark-theme .file::before {
-    content: "SELECCIONAR IMAGEN DEL DISPOSITIVO";
+    content: "\F219";
+    font-family: "bootstrap-icons";
     display: inline-block;
     padding: 8px 16px;
     border: 3px solid black;
