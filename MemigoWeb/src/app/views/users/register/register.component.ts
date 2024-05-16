@@ -16,6 +16,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import html2canvas from 'html2canvas';
 import { AuthService } from '../../../services/auth.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { RegisterDialogComponent } from '../../../components/register-dialog/register-dialog.component';
 
 @Component({
   selector: 'app-register',
@@ -61,12 +62,7 @@ export class RegisterComponent {
       this.registerUser(user);
       this.routerService.navigate(['/login']);
     }else{
-      this.dialog.open(LoginDialogComponent, {
-        data: { dialog_header: "No se pudo realizar el registro",
-          dialog_body: "Los datos introducidos no son validos. Compruebe su contraseña o pruebe otro uid.",
-          dialog_button:"Ok"
-         } 
-      });
+      this.dialog.open(RegisterDialogComponent);
     }
   };
 

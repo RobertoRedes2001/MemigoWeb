@@ -1,0 +1,35 @@
+mat-dialog-content {
+    border-radius: 10px;
+    padding: 20px;
+    width: 250; 
+}
+  
+.light-theme mat-dialog-actions button {
+    color: white; 
+    background-color: #F44336; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+  
+.light-theme mat-dialog-actions button:hover {
+    background-color: #A4161A; 
+}
+
+.dark-theme mat-dialog-actions button {
+    color: black; 
+    background-color: #10BCB9; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+  
+.dark-theme mat-dialog-actions button:hover {
+    background-color: #14E9F5; /* Cambia el color de fondo al pasar sobre el botón */
+}
