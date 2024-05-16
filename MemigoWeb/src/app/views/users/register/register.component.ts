@@ -82,7 +82,7 @@ export class RegisterComponent {
     let formValue = this.registerForm.getRawValue();
     this.existUser(formValue.uid);
     await this.getProfilePictureInfo();
-    if (!this.exist && formValue.password == formValue.confirmpassword && !this.checkEmptyFields(formValue)) {
+    if (this.registerForm.controls.email.valid &&!this.exist && formValue.password == formValue.confirmpassword && !this.checkEmptyFields(formValue)) {
       let user: UserPost = {
         uid: formValue.uid,
         username: formValue.username,
