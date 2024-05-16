@@ -12,6 +12,14 @@
   margin-bottom: 16px;
 }
 
+.arrow-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+}
+
+
 img {
   width: 250px;
   height: 250px;
@@ -23,13 +31,14 @@ img {
   padding: 10px;
   margin-top: 16px;
   margin-bottom: 16px;
-  border: none;
   border-radius: 20px;
 }
 
 .light-theme .register-form button {
   background-color: #f44336;
   color: white;
+  border: 3px solid white;
+  border-radius: 10px;
 }
 
 .light-theme .register-form button:disabled {
@@ -44,6 +53,8 @@ img {
 .dark-theme .register-form button {
   background-color: #10bcb9;
   color: black;
+  border: 3px solid black;
+  border-radius: 10px;
 }
 
 .dark-theme .register-form button:disabled {
@@ -97,8 +108,6 @@ input[type="file"] {
 
 /* Dark Theme */
 .dark-theme .file::before {
-  content: "\F219";
-  font-family: "bootstrap-icons";
   background-color: #10bcb9;
   width: 250px;
   margin-left: 1px;
@@ -112,7 +121,8 @@ input[type="file"] {
 }
 
 .dark-theme .file::before {
-  content: "Subir foto";
+  content: "\F219";
+  font-family: "bootstrap-icons";
   display: inline-block;
   padding: 8px 16px;
   border: 3px solid black;

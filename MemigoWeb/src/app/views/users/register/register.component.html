@@ -1,5 +1,8 @@
 <div class="container-fluid" [ngClass]="theme">
     <h1>{{'register_h1' | translate}}</h1>
+    <div class="arrow-icon">
+      <h1 class="nav-link" routerLink="/login" RouterLinkActive="active" class="bi bi-box-arrow-left"></h1>
+  </div>
     <hr>
     <div id="form" class="row">
         <form (submit)="register($event)" [formGroup]="registerForm" class="register-form row">

@@ -12,7 +12,7 @@ import { SafeUrl } from '@angular/platform-browser';
 import { CropperModalComponent } from '../../../components/cropper-modal/cropper-modal.component';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { LoginDialogComponent } from '../../../components/login-dialog/login-dialog.component';
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import html2canvas from 'html2canvas';
 import { AuthService } from '../../../services/auth.service';
 import { TranslateModule } from '@ngx-translate/core';
@@ -20,7 +20,7 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [TranslateModule,CropperModalComponent,NgClass,ReactiveFormsModule,MatCheckbox,MatInputModule,MatFormFieldModule,MatSelectModule],
+  imports: [RouterLink, RouterLinkActive,TranslateModule,CropperModalComponent,NgClass,ReactiveFormsModule,MatCheckbox,MatInputModule,MatFormFieldModule,MatSelectModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })

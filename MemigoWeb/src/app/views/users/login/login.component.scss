@@ -25,8 +25,8 @@
   margin-top: 16px; /* Espacio superior */
   background-color: #f44336; /* Color de fondo rojo */
   color: white; /* Color del texto blanco */
-  border: none; /* Sin contorno */
-  border-radius: 20px; /* Hace el botón redondo */
+  border-radius: 10px; /* Hace el botón redondo */
+  border: 3px solid white;
 }
 
 .light-theme .login-form button:hover {
@@ -39,8 +39,8 @@
   margin-top: 16px; /* Espacio superior */
   background-color: #10BCB9; /* Color de fondo rojo */
   color: black; /* Color del texto blanco */
-  border: none; /* Sin contorno */
   border-radius: 20px; /* Hace el botón redondo */
+  border: 3px solid black;
 }
 
 .dark-theme .login-form button:hover {
