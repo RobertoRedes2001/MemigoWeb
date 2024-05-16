@@ -21,6 +21,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import html2canvas from 'html2canvas';
 import { AuthService } from '../../../services/auth.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { RegisterDialogComponent } from '../../../components/register-dialog/register-dialog.component';
 
 @Component({
   selector: 'app-register',
@@ -92,6 +93,7 @@ export class RegisterComponent {
       };
       this.registerUser(user);
       this.routerService.navigate(['/login']);
+<<<<<<< HEAD
     } else {
       this.dialog.open(LoginDialogComponent, {
         data: {
@@ -101,6 +103,10 @@ export class RegisterComponent {
           dialog_button: 'Ok',
         },
       });
+=======
+    }else{
+      this.dialog.open(RegisterDialogComponent);
+>>>>>>> f13cea87ba7a118a15ac19890586a7b26f5b48ab
     }
   }
 
