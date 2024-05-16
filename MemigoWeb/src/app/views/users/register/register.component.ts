@@ -93,20 +93,8 @@ export class RegisterComponent {
       };
       this.registerUser(user);
       this.routerService.navigate(['/login']);
-<<<<<<< HEAD
-    } else {
-      this.dialog.open(LoginDialogComponent, {
-        data: {
-          dialog_header: 'No se pudo realizar el registro',
-          dialog_body:
-            'Los datos introducidos no son validos. Compruebe su contraseña o pruebe otro uid.',
-          dialog_button: 'Ok',
-        },
-      });
-=======
     }else{
       this.dialog.open(RegisterDialogComponent);
->>>>>>> f13cea87ba7a118a15ac19890586a7b26f5b48ab
     }
   }
 
