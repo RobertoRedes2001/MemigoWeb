@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators,ReactiveFormsModule } from '@angular/forms';
-import { RouterLink, RouterLinkActive, Router } from '@angular/router';
+import { RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -42,7 +42,7 @@ export class LoginComponent {
       .subscribe({
         next: () => {
           this.authService.setCurrentUser();
-          this.global.url = "/home";
+
           this.routerService.navigate(['/home']);
         },
         error: (error) => {
@@ -55,7 +55,7 @@ export class LoginComponent {
     if(localStorage.getItem('theme')==null){
       localStorage.setItem('theme','light-theme');
     }
-    this.theme = localStorage.getItem('theme') 
-    
+    this.theme = localStorage.getItem('theme')
+    console.log(this.global.url)
   }
 }

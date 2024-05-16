@@ -85,6 +85,7 @@ export class HeaderComponent {
     if (localStorage.getItem('theme') == null) {
       localStorage.setItem('theme', 'light-theme');
     }
+    console.log()
     this.getUser(localStorage.getItem('currentUser') ?? '');
     this.getUsers();
     this.theme = localStorage.getItem('theme');
